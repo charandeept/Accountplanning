@@ -1,14 +1,9 @@
----
 kind: pipeline
 type: docker
+name: echo-hai
+
 steps:
-  - name: install_dependencies
-    image: node:latest
+  - name: echo-hai
+    image: alpine
     commands:
-      - cd Account\ Planning/Web
-      - npm install
-  - name: build_project
-    image: node:latest
-    commands:
-      - cd Account\ Planning/Web
-      - npm run build
+      - echo "Hai"
