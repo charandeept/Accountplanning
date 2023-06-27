@@ -1,13 +1,15 @@
 kind: pipeline
-name: default
+type: docker
 
 steps:
-  - name: install
-    image: node
+  - name: install_dependencies
+    image: node:latest
     commands:
+      - cd Account\ Planning/Web  # Specify the path to your project directory
       - npm install
 
-  - name: build
-    image: node
+  - name: build_project
+    image: node:latest
     commands:
+      - cd Account\ Planning/Web  # Specify the path to your project directory
       - npm run build
