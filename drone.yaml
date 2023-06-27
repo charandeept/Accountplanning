@@ -1,3 +1,7 @@
+clone:
+  CLONE REPO:
+    image: plugins/git
+    depth: 1
 kind: pipeline
 type: docker
 name: echo-hai
