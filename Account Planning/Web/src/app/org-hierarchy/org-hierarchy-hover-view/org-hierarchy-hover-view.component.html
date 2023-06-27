@@ -1,0 +1,29 @@
+<div class="view-popup" *ngIf="this.user" [ngStyle]="{left:styleLeft,top:styleTop}">
+    <div class="container__profile">
+        <img *ngIf="this.user.gender === 'Female'" class="avtar" src="../../../assets/images/FemaleUser-image.png" />
+        <img *ngIf="this.user.gender === 'Male'" class="avtar" src="../../../assets/images/MaleUser-image.png"/>
+        <div class="container__profile__text">
+            <h3 >{{this.user.name}}</h3>
+            <p>{{this.user.designation}}</p>
+            <p>{{this.user.influencerOrKdm_Name}}</p>
+        </div>
+    </div>
+    <hr>
+    <div class="list-item">
+        <img class="image" src="../../../assets/images/Role.png"/>
+        <h3 class="field">Role Discription</h3>
+        <p class="field-value">{{this.user.roleDescription}}</p>
+    </div>
+    <hr>
+    <div class="list-item">
+        <img class="image" src="../../../assets/images/persona.png"/>
+        <h3 class="field">Persona</h3>
+        <p class="field-value">{{this.user.persona}}</p>
+    </div>
+    <hr>
+    <div class="list-item">
+        <img class="image" src="../../../assets/images/Dm.png"/>
+        <h3 class="field">Innova Solution DM</h3>
+        <p class="field-value">{{this.user.innovaDM_Name}}</p>
+    </div>
+</div>

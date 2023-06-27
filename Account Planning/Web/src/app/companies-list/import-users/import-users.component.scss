@@ -1,0 +1,342 @@
+.list::-webkit-scrollbar {
+    display:block !important;
+    overflow: scroll;
+    width: 15px;
+}
+.list::-webkit-scrollbar:hover{
+    background-color: rgba(9, 127, 224, 0.07);
+}
+.list::-webkit-scrollbar-thumb:hover {
+  
+  background-color: rgba(0, 129, 172, 0.425);
+}
+
+.list::-webkit-scrollbar-thumb{
+    border-radius: 20px;
+    background: rgba(9, 127, 224, 0.07);
+}
+
+.designation {
+    margin: 0px;
+}
+
+.firstrow {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin: 0px 0px 0px 20px;
+}
+
+.body {
+    background-color: white;
+    border-radius: 10px;
+    margin: 30px 0px 0px 0px;
+    padding: 20px;
+    font-size: 14px;
+    min-width: 1285px;
+}
+
+#deliverymanager {
+    margin: 0px 0px 0px 13px;
+}
+
+#subHeading {
+    font-size: 13px;
+    color: rgba(135, 152, 173, 1);
+}
+
+.uppercontainer {
+    display: flex;
+    gap: 25px;
+}
+
+.firstcontainer {
+    width: 50%;
+}
+
+#alluser {
+    gap: 10px;
+    width: auto;
+}
+
+.note {
+    width: 35%;
+    height: auto;
+    border-radius: 5px;
+    background-color: rgba(217, 217, 217, 1);
+    padding: 10px;
+    margin: 0% 8% 0% 2%;
+}
+
+.choosefile {
+    display: flex;
+    gap: 10px;
+    margin: 20px 0px 0px 0px;
+}
+
+#choosefile {
+    height: auto !important;
+    border-radius: 6px;
+    border-color: rgba(104, 174, 249) !important;
+    background-color: white;
+    padding: 2px 20px;
+    font-size: 12px;
+
+}
+
+#filename {
+    margin: 0px 0px 0px 60px;
+    width: 150px
+}
+
+.choosefile:hover {
+    border-color: rgba(0, 112, 205, 1);
+}
+
+#messages {
+    min-height: 60px;
+}
+
+#errors {
+    color: red;
+    width: 170px;
+}
+
+.downloadButtons {
+    display: flex;
+    gap: 60px;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    width: 400px;
+    padding: 30px 0px 0px 0px;
+}
+
+.upload {
+    border-radius: 5px;
+    background-color:rgba(0, 112, 205, 1);
+    border: none;
+    color: white;
+    padding: 0px 30px;
+    margin: 0px 0px 0px 70px;
+}
+
+#duplicateProcessing {
+    width: 40%;
+    border-radius: 5px;
+    border: 2px solid rgb(161, 161, 161);
+}
+
+.searchIcon {
+    margin: 10px;
+    font-size: 20px;
+}
+.headContainer{
+    display: flex;
+}
+.fa-arrow-left-long{
+    margin: 7px 10px 0px 0px;
+    color: black;
+}
+
+
+#search {
+    border: none;
+    height: 38px;
+    color: rgba(128, 129, 139, 1);
+    font-size: 16px;
+    width: 90%;
+    margin-top: 2px;
+}
+
+.searchBar {
+    width: 25%;
+    height: 45px;
+    border: 2px solid rgba(204, 211, 219, 1);
+    margin: 10px 0px 10px 0px;
+    border-radius: 5px;
+}
+
+.table-header{
+    display:flex;
+    justify-content: space-between;
+}
+.button{
+    margin-top: 20px;
+    margin-right: 20px;
+    display:flex;
+    justify-content: space-between;
+}
+.exportData{
+    margin-right: 15px;
+    color: #0070CD;
+}
+.addUsers{
+    background-color: rgb(7, 190, 7);
+    color:white
+}
+#downloadbutton {
+    border: none;
+    background-color: white;
+    color: rgba(0, 112, 205, 1);
+
+}
+
+.table-content {
+    height: fit-content;
+    margin-left: 5%;
+}
+
+.mat-row,
+.mat-header-row {
+    display: table-row;
+}
+
+.mat-cell,
+.mat-header-cell {
+    word-wrap: initial;
+    display: table-cell;
+    padding: 0 5px;
+    width: auto;
+    white-space: nowrap;
+    overflow: hidden;
+    vertical-align: middle;
+
+}
+
+th {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 17px;
+    line-height: 15px;
+    color: #2E384D;
+    background-color: rgba(0, 112, 205, 0.07);
+}
+
+.mat-table {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 1rem;
+    display: table;
+    border-collapse: collapse;
+    margin: 0px;    
+}
+
+i {
+    padding: 3%;
+    color: #80818B;
+    cursor: pointer;
+}
+
+.list {
+    margin-top: 1%;
+    box-sizing: border-box;
+    height: 550px;
+    overflow-y: scroll;
+}
+
+th mat-header-cell {
+    margin: auto;
+    font-style: Medium;
+    font-size: 12.64px;
+    font-weight: bold;
+}
+
+table {
+    width: 98%;
+}
+
+.mat-table {
+    box-shadow: none;
+}
+
+::ng-deep th {
+    font-family: sans-serif !important;
+}
+
+.mat-column-id,
+.mat-column-action,
+.mat-column-isActive{
+    word-wrap: break-word !important;
+    white-space: unset !important;
+    flex: 0 0 6% !important;
+    width: 6% !important;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+    -ms-hyphens: auto;
+    -moz-hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+}
+.mat-column-designation{
+    word-wrap: break-word !important;
+    white-space: unset !important;
+    flex: 0 0 12% !important;
+    width: 12% !important;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+    -ms-hyphens: auto;
+    -moz-hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+}
+.mat-column-name,
+.mat-column-currentRole,
+.mat-column-modifiedBy,
+.mat-column-modifiedDate {
+    word-wrap: break-word !important;
+    white-space: unset !important;
+    flex: 0 0 9% !important;
+    width: 9% !important;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+    -ms-hyphens: auto;
+    -moz-hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+}
+.mat-column-emailAddress {
+    word-wrap: break-word !important;
+    white-space: unset !important;
+    flex: 0 0 20% !important;
+    width: 20% !important;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+    -ms-hyphens: auto;
+    -moz-hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+}
+
+::ng-deep .mat-paginator-container {
+    justify-content: space-between !important;
+    margin-bottom: 0%;
+}
+.mat-paginator,
+.mat-paginator-page-size .mat-select-trigger {
+    font-size: 14px;
+}
+tr.mat-header-row{
+    position: sticky;
+    top: 0;
+}
+.buttons{
+    display: flex;
+    justify-content: space-between;
+    .apply , .clear{
+        background-color: #0070CD;
+        color:white;
+        font-weight:bold;
+    }
+}
+.filter,.sort{
+    padding: 0px 0px 0px 6px;
+    cursor: pointer;
+}
+.form{
+    padding: 5%; 
+}

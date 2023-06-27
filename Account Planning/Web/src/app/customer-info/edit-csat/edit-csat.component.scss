@@ -1,0 +1,92 @@
+textarea.ng-touched.ng-invalid{
+    border: 1.5px solid red !important;
+}
+
+#main {
+    text-align: center;
+    padding-top: 2%;
+    width: 100%;
+    height: 100%;
+    display:inline-flex;
+    flex-direction: column;
+    justify-content: space-between;
+    #csatBody {
+        width: 100%;
+        height: 75%;
+        display: inline-flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+
+        .mainDiv {
+            h1 {
+                margin: 0;
+            }
+
+            p {
+                color: #8798AD;
+            }
+        }
+
+        .rating {
+            color: #DBDBDB;
+            height: 60%;
+
+            i {
+                cursor: pointer;
+            }
+
+            p {
+                padding-top: 4%;
+                color: #0070CD;
+                font-family: Inter;
+                font-size: 16px;
+                font-weight: 600;
+                line-height: 19px;
+            }
+
+            .active {
+                color: #1079D0;
+            }
+        }
+    }
+
+    #csatFooter {
+        text-align: left;
+        mat-checkbox {
+            color: #0070CD;
+            font-family: Inter;
+            font-size: 16px;
+            font-weight: 600;
+            line-height: 19px;
+
+        }
+
+        #commentBox {
+            padding: 5px;
+            clear: both;
+            width: 100%;
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

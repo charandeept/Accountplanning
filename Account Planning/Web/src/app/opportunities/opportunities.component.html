@@ -1,0 +1,101 @@
+<div>
+    <div id="breadcrum">
+        <h2> <span class='fas fa-arrow-left' id="arrowIcon" routerLink="/companies-list"></span>{{selectedAccount}}</h2>
+        <div id="updatedDate">
+            <section>
+                <p class="opacity">Manage Account Information
+                    <span id="editButton"> (<span class="fa-solid fa-pen"></span>
+                        Edit)</span>
+                </p>
+            </section>
+            <section>
+                <p>Last Updated : {{oportunitiesList[0].postedDate | date:'medium'}}</p>
+            </section>
+        </div>
+    </div>
+    <div id="opprtunitiesBody">
+        <div id="opportunitiesLeft">
+            <mat-card id="businessRoadmap">
+                <mat-card-title>Business Roadmap</mat-card-title>
+
+                <!-- <angular-editor [config]="config">
+
+                </angular-editor> -->
+            </mat-card>
+            <div id="painpointCatalog">
+                <mat-card id="painpoints">
+                    <mat-card-title>Painpoints</mat-card-title>
+                </mat-card>
+                <mat-card id="catalogueAwareness">
+                    <mat-card-title>Catalogue Awareness</mat-card-title>
+                </mat-card>
+            </div>
+        </div>
+        <div id="opportunitiesList">
+            <mat-card>
+                <mat-card-title>
+                    <h3 style="margin-top: 7px;">Recently Posted Jobs </h3>
+                    <div>
+                        <button mat-button id="newOpportunities" style="margin-top: 2px;" (click)="addopportunity()">
+                            <span id="addOption">+</span> New opportunity</button>
+                        <button mat-button id="filters" [matMenuTriggerFor]="menu"><i class="fa-solid fa-filter"></i>
+                            Filters</button>
+                        <mat-menu #menu="matMenu">
+                            <button mat-menu-item>Date</button>
+                            <button mat-menu-item>Bookmarks</button>
+                        </mat-menu>
+                    </div>
+                </mat-card-title>
+                <mat-card-content>
+                    <mat-card class="sigleOpportunitiesList" *ngFor="let optionList of oportunitiesList">
+                        <mat-card-content>
+                            <div class="opportunitiesIconDetails">
+                                <div class="icon">
+                                    <img [src]="optionList.imgurl" height="50px" width="50px"
+                                        style="border-radius:50px">
+                                </div>
+                                <div class="opportunitiesDetails">
+                                    <p class="bold">{{optionList.roleTitle}} | {{optionList.noOfRoles}} positions</p>
+                                    <p class="opacity">
+                                        <span>{{optionList.category}} </span>
+                                        <span style="margin-left: 4px;margin-right: 3px;"
+                                            *ngIf="optionList.roleDescription">
+                                            &#x2022;{{optionList.roleDescription}}
+                                        </span>
+                                        <span style="margin-left: 4px;" *ngIf="optionList.skills">
+                                            &#x2022;{{optionList.skills}}
+                                        </span>
+                                    </p>
+                                    <p class="OpportunitiesCity">
+                                        <span *ngFor="let cities of optionList.location.split(',')">{{cities}}</span>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="BookmarkUpdatedDetails">
+                                <p class="bookMark">
+                                    <i class="fa-solid fa-pen fa-1x" (click)="editPopUp(optionList.roleId)"
+                                        style="color:#0070CD;margin-right: 5px;cursor: pointer;"></i>
+                                    <i class="fa-solid fa-bookmark" *ngIf="optionList.isBookMarked"
+                                        style="cursor: pointer;color: #0070CD;"
+                                        (click)="updateBookMark(optionList.roleId)"></i>
+                                    <span style="line-height: 5px;" (click)="updateBookMark(optionList.roleId)">
+                                        <i class="fa-regular fa-bookmark" *ngIf="!optionList.isBookMarked"
+                                            style="cursor: pointer;"></i>
+                                    </span>
+                                </p>
+                                <p class="opacity">
+                                    <span *ngIf="optionList.covertedHours.Days" style="margin-right: 3px;">
+                                        {{optionList.covertedHours.Days}} Days
+                                    </span>
+                                    <span>
+                                        {{optionList.covertedHours.Hours}} Hours
+                                    </span>
+                                </p>
+                            </div>
+                        </mat-card-content>
+                    </mat-card>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
+</div>

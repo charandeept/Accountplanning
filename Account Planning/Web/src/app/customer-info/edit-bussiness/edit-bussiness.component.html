@@ -1,0 +1,214 @@
+<div id="mainBussinessForm" *ngIf="dataConsist">
+    <form [formGroup]="bussinessForm" id="bussinessFormId" (ngSubmit)="postIntegrationData()" (change)="isDisable()">
+        <div id="formFields">
+            <div id="lastTwoFields" *ngIf="userData.name=='editModal'">
+                <div class="divSingleFields">
+                    <section>
+                        <label for="customerName">Account Name</label>
+                        <input type="text" formControlName="customerName" placeholder="Enter Account Name"
+                            [attr.disabled]="true">
+                        <small
+                            *ngIf="this.bussinessForm.get('customerName')?.touched&& this.bussinessForm.get('customerName')?.hasError('required')"
+                            class="errorMessage"> Account Name should not be empty</small>
+                    </section>
+                </div>
+            </div>
+            <div id="lastTwoFields" *ngIf="userData.name=='addModal'">
+                <div class="divSingleFields">
+                    <section>
+                        <label for="customerName">Account Name</label>
+                        <input type="text" formControlName="customerName" placeholder="Enter Account Name">
+                        <small
+                            *ngIf="this.bussinessForm.get('customerName')?.touched&& this.bussinessForm.get('customerName')?.hasError('required')"
+                            class="errorMessage"> Account Name should not be empty</small>
+                    </section>
+                </div>
+            </div>
+            <div class='divTwoFields'>
+                <section>
+                    <label for="website">Website </label>
+                    <input type="text" formControlName="website" placeholder="Enter Website" id="website">
+                    <small
+                        *ngIf="this.bussinessForm.get('website')?.touched&& this.bussinessForm.get('website')?.hasError('required')"
+                        class="errorMessage"> Website should not be empty</small>
+                </section>
+                <section>
+                    <label for="timeZone">Time zone </label>
+                    <select formControlName="timeZone">
+                        <option value="">Select </option>
+                        <option *ngFor="let item of timeZoneOption " [value]="item.id"> {{item.timeZone}}</option>
+                    </select>
+                    <small
+                        *ngIf="this.bussinessForm.get('timeZone')?.touched && this.bussinessForm.get('timeZone')?.hasError('required')"
+                        class="errorMessage"> Select Time Zone</small>
+                </section>
+            </div>
+            <div class='divTwoFields'>
+                <section>
+                    <label for="industry">Industry </label>
+                    <select formControlName="industry">
+                        <option value="">Select </option>
+                        <option *ngFor="let item of industryOption" [value]="item.id"> {{item.industry}}</option>
+                    </select>
+                    <small
+                        *ngIf="this.bussinessForm.get('industry')?.touched && this.bussinessForm.get('industry')?.hasError('required')"
+                        class="errorMessage"> Select Industry</small>
+                </section>
+                <section>
+                    <label for="deliveryModel">Delivery Model </label>
+                    <select formControlName="deliveryModel">
+                        <option value="">Select </option>
+                        <option *ngFor="let item of deliveryModelOption" [value]="item">{{item}}</option>
+                    </select>
+                    <small
+                        *ngIf="this.bussinessForm.get('deliveryModel')?.touched&& this.bussinessForm.get('deliveryModel')?.hasError('required')"
+                        class="errorMessage"> Select Delivery Model</small>
+                </section>
+            </div>
+            <div class='divTwoFields'>
+                <section>
+                    <label for="companySize">Company Size </label>
+                    <input (keydown)='numberValidation($event)' type="number" formControlName="companySize"
+                        placeholder=" Enter Company Size">
+                    <small
+                        *ngIf="this.bussinessForm.get('companySize')?.touched&& this.bussinessForm.get('companySize')?.hasError('required')"
+                        class="errorMessage"> Company Size should not be empty</small>
+
+                </section>
+                <section>
+                    <label for="onshoreResources">Onshore Resources </label>
+                    <input (keydown)='numberValidation($event)' type="number" formControlName="onshoreResources"
+                        placeholder="Enter Onshore Resources">
+                    <small
+                        *ngIf="this.bussinessForm.get('onshoreResources')?.touched&& this.bussinessForm.get('onshoreResources')?.hasError('required')"
+                        class="errorMessage"> Onshore Resources should not be empty</small>
+
+                </section>
+            </div>
+            <div class='divTwoFields'>
+                <section>
+                    <label for="headquarters">Head Quaters </label>
+                    <input type="text" formControlName="headquarters" placeholder="Enter Head Quaters">
+                    <!-- <select formControlName="headquarters">
+                        <option value="">Select </option>
+                        <option *ngFor="let item of headquatersOption " [value]="item">{{item}}</option>
+                    </select> -->
+                    <small
+                        *ngIf="this.bussinessForm.get('headquarters')?.touched&& this.bussinessForm.get('headquarters')?.hasError('required')"
+                        class="errorMessage"> Headquaters should not be empty </small>
+                </section>
+                <section>
+                    <label for="offshoreResources">Offshore Resources </label>
+                    <input (keydown)='numberValidation($event)' type="number" formControlName="offshoreResources"
+                        placeholder="Enter Offshore Resources">
+                    <small
+                        *ngIf="this.bussinessForm.get('offshoreResources')?.touched&& this.bussinessForm.get('offshoreResources')?.hasError('required')"
+                        class="errorMessage"> Offshore Resources should not be empty</small>
+
+                </section>
+            </div>
+            <div class='divTwoFields'>
+                <section>
+                    <label for="speciality">Speciality </label>
+                    <input type="text" formControlName="speciality" placeholder="Enter Speciality">
+                    <small
+                        *ngIf="this.bussinessForm.get('speciality')?.touched&& this.bussinessForm.get('speciality')?.hasError('required')"
+                        class="errorMessage"> Speciality should not be empty</small>
+                </section>
+                <section>
+                    <label for="nearShore">Near Shore </label>
+                    <input (keydown)='numberValidation($event)' type="number" formControlName="nearShore"
+                        placeholder=" Enter Near shore">
+                    <small
+                        *ngIf="this.bussinessForm.get('nearShore')?.touched&& this.bussinessForm.get('nearShore')?.hasError('required')"
+                        class="errorMessage"> Near Shore should not be empty</small>
+                </section>
+            </div>
+            <div class='divTwoFields'>
+                <section>
+                    <label for="clientPartnerName">Client Partner</label>
+                    <input type="text" formControlName="clientPartnerName" placeholder="Enter Client Partner Name">
+                    <small
+                        *ngIf="this.bussinessForm.get('clientPartnerName')?.touched&& this.bussinessForm.get('clientPartnerName')?.hasError('required')"
+                        class="errorMessage"> Client Partner should not be empty</small>
+                </section>
+                <section>
+                    <label for="projectEndDate">Project End Date</label>
+                    <input type="date" formControlName="projectEndDate" [min]="currentDate">
+                    <small
+                        *ngIf="this.bussinessForm.get('projectEndDate')?.touched&& this.bussinessForm.get('projectEndDate')?.hasError('required')"
+                        class="errorMessage">Select Project End Date </small>
+                </section>
+            </div>
+        </div>
+        <div id="lastTwoFields">
+            <div class="divSingleFields" *ngIf="user[0].userRoleId != isDM">
+                <section>
+                    <label for="deliveryManager">Delivery Manager </label>
+                    <select formControlName="deliveryManager" style="color: black;">
+                        <option value="">Select </option>
+                        <option *ngFor="let item of deliveryManagerOption" [value]="item.id">{{item.deliveryManager}}
+                        </option>
+                    </select>
+                    <small
+                        *ngIf="this.bussinessForm.get('deliveryManager')?.touched&& this.bussinessForm.get('deliveryManager')?.hasError('required')"
+                        class="errorMessage"> Select a Delivery Manager</small>
+                </section>
+            </div>
+
+            <div class="divSingleFields" *ngIf="user[0].userRoleId == isDM">
+                <section *ngIf="userData.name=='addModal'">
+                    <label for="deliveryManager">Delivery Manager </label>
+                    <select formControlName="deliveryManager" style="color: black;">
+                        <option [value]="user[0].userName" selected>{{user[0].userName}}
+                        </option>
+                    </select>
+                    <small
+                        *ngIf="this.bussinessForm.get('deliveryManager')?.touched&& this.bussinessForm.get('deliveryManager')?.hasError('required')"
+                        class="errorMessage"> Select a Delivery Manager</small>
+                </section>
+                <section *ngIf="userData.name=='editModal'">
+                    <label for="deliveryManager" style="color: grey;">Delivery Manager </label>
+                    <select formControlName="deliveryManager" style="color: grey;" [attr.disabled]="true">
+                        <option value="">Select </option>
+                        <option *ngFor="let item of deliveryManagerOption" [value]="item.id">{{item.deliveryManager}}
+                        </option>
+                    </select>
+                    <small
+                        *ngIf="this.bussinessForm.get('deliveryManager')?.touched&& this.bussinessForm.get('deliveryManager')?.hasError('required')"
+                        class="errorMessage"> Select a Delivery Manager</small>
+                </section>
+            </div>
+        </div>
+        <div id="lastTwoFields">
+            <div class="divSingleFields">
+                <section>
+                    <label for="servicesOffered">Services Lines Offered</label>
+                    <select formControlName="servicesOffered">
+                        <option value="">Select </option>
+                        <option *ngFor="let item of serviceLines" [value]="item">{{item}}</option>
+                    </select>
+                    <small
+                        *ngIf="this.bussinessForm.get('servicesOffered')?.touched&& this.bussinessForm.get('servicesOffered')?.hasError('required')"
+                        class="errorMessage">Services Lines Offered should not be empty</small>
+                </section>
+            </div>
+        </div>
+        <div id="lastTwoFields">
+            <div class="divSingleFields">
+                <section>
+                    <label for="techStack">Technologies</label>
+                    <input type="text" formControlName="techStack" placeholder="Enter Technologies">
+                    <small
+                        *ngIf="this.bussinessForm.get('techStack')?.touched&& this.bussinessForm.get('techStack')?.hasError('required')"
+                        class="errorMessage"> Technologies should not be empty</small>
+                </section>
+
+            </div>
+        </div>
+
+    </form>
+</div>
+<div *ngIf="!dataConsist" class="loader">
+    <mat-spinner></mat-spinner>
+</div>

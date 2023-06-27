@@ -1,0 +1,27 @@
+@import '../../../../styles.scss';
+$g-nav-background-color: #EFF7FF;
+.footer-content {
+    position: relative !important;
+    width: 100%;
+    background-color: $g-nav-background-color;
+    color:black !important;
+    position: relative !important; 
+    float: left !important;
+    font-size: 10px !important;
+    display: flex;
+    justify-content: space-between;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.footer-text{
+    float: right;
+    clear: both;
+}
+#bottomLeft{
+    padding-top:8px ;
+    line-height:13px;
+    clear: both;
+    a{
+        margin-right: 20px;
+    }
+}

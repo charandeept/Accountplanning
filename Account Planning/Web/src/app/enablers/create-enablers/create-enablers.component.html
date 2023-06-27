@@ -1,0 +1,28 @@
+<div class="body">
+    <div class='create-enabler'>
+        <div id='top'>
+            <section>
+                <h2>{{data.cardType}} Enablers</h2>
+                <p class="opacity">Set Enabler Preferences</p>
+            </section>
+            <section class="closebar">
+                <button mat-icon-button class="close-button" mat-dialog-close="true">
+                    <mat-icon class="close-icon">close</mat-icon>
+                </button>
+            </section>
+        </div>
+        <form class="form" [formGroup]="cardForm">
+            <div>
+                <div class="Enablers">
+                    <label class="label">Title</label>
+                    <input type="input" class="enabler" matInput formControlName="title">
+                </div>
+                <div mat-dialog-actions class="buttons">
+                    <button mat-button class="cancel" (click)="close()">Cancel</button>
+                    <button mat-raised-button cdkFocusInitial type="submit" class="create"
+                        (click)="modalAction(data)">{{data.actionButtonText}}</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,51 @@
+<div id="mainModal">
+    <header>
+        <button mat-button id="close" (click)="alert()">
+            <mat-icon>close</mat-icon>
+        </button>
+        <h2 mat-dialog-title style="margin: 0;">{{userData.modalType}} Account</h2>
+        <p class="opacity">Manage your Account Information</p>
+    </header>
+
+    <body>
+        <div id="navbar">
+            <div (click)="tab('bussiness')" style="width:80px">
+                <span [class.active-tab]="bussinessContent">Business</span>
+            </div>
+            <div (click)="tab('vendors')" style="width:65px"><span [class.active-tab]="vendorsContent">Vendors</span>
+            </div>
+            <div (click)="tab('CSAT')" style="width:42px"><span [class.active-tab]="csatContent">CSAT</span></div>
+            <div (click)="tab('customerMood')" style="width: 150px;"><span
+                    [class.active-tab]="customerMoodContent">Customer Mood</span></div>
+            <div (click)="tab('financialHealth')" style="width:152px"><span
+                    [class.active-tab]="financialHealthContent">Financial Health</span></div>
+            <div (click)="tab('engagementHealth')" style="width:190px"><span
+                    [class.active-tab]="engagmentHealthContent">Engagement Health</span></div>
+        </div>
+        <div id="clickComponent">
+            <app-edit-bussiness [ngClass]="{'d-none': !bussinessContent}" (postedData)="bussinessPostData($event)"
+                (disable)="buttonStatus($event)"></app-edit-bussiness>
+            <app-edit-csat [ngClass]="{'d-none': !csatContent}" (postedData)="csatPostedData($event)"></app-edit-csat>
+            <app-edit-vendors [ngClass]="{'d-none': !vendorsContent}"
+                (postedData)="vendorDataPostedData($event)"></app-edit-vendors>
+            <app-edit-customer-mood [ngClass]="{'d-none': !customerMoodContent}"
+                (postedData)="customerMood($event)"></app-edit-customer-mood>
+            <app-edit-financial-health [ngClass]="{'d-none': !financialHealthContent}"
+                (postedData)="financialHealthPostedData($event)"></app-edit-financial-health>
+            <app-edit-enagagment-health [ngClass]="{'d-none': !engagmentHealthContent}"
+                (postedData)="enagmentHealthPostedData($event)"></app-edit-enagagment-health>
+        </div>
+    </body>
+    <footer id="footer">
+        <section id="footerButton">
+            <button mat-stroked-button color="primary" class="cancel" (click)="alert()">Cancel</button>
+            <button *ngIf="!isAdd" mat-flat-button color="primary" class="save"
+                (click)="tabSwitch()">{{displayButton}}</button>
+            <button *ngIf="isAdd" mat-flat-button color="primary" class="save" (click)="tabSwitch()"
+                [disabled]="isDisable">{{displayButton}}</button>
+        </section>
+    </footer>
+</div>
+<div class="loader" *ngIf="activeLoader">
+    <mat-spinner></mat-spinner>
+</div>

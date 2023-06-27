@@ -1,0 +1,57 @@
+p,h3,hr{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+p.field-value{
+    padding-left: 25px;
+    font-size: 16px;
+}
+h3.field{
+    display: inline;
+    padding-left: 5px;
+    font-size: 18px;
+}
+.view-popup{
+    width: 280px;
+    height: auto;
+    position: absolute;
+    background-color: #fff;
+    background: linear-gradient(#fdfdfd, #fff);
+    box-shadow: 0 8px 16px -8px rgba(1,1,1,1);
+    border-radius: 8px;
+    overflow:hidden;
+}
+
+.list-item{
+    padding: 5px;
+}
+
+.container__profile {
+    display: flex;
+    padding: 10px 0;
+    bottom: 0;
+    
+}
+.container__profile__text{
+    padding-left: 30px;
+    text-transform: capitalize;
+}
+.avtar{
+    width:65px;
+  	height:65px;
+    padding: 0 !important;
+}
+.image{
+    width: 20px;
+    height: 20px;
+}
+.ng-star-inserted {
+    display: block;
+    text-align:left;
+    padding: 10px 20px !important;
+}
+img.avtar.ng-star-inserted{
+    padding: 0 !important;
+}

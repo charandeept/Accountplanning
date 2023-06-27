@@ -1,0 +1,79 @@
+<div class="editpopup">
+    <header>
+        <button mat-button mat-dialog-close id="close">
+            <mat-icon>close</mat-icon>
+        </button>
+        <h2 mat-dialog-title id="AddOpportunity"><span *ngIf="this.userData.modalType === 'Add'"
+                style="color: black;">Create New</span> <span *ngIf="this.userData.modalType === 'edit'"
+                style="color: black;">Edit</span> Opportunity</h2>
+        <p class="opacity">Set Preferences for the Opportunities</p>
+
+    </header>
+
+    <form [formGroup]="opportunityForm" id="AddOpportunity">
+
+        <div class="mid-container">
+            <section>
+                <label for="roleTitle">Role Title<span id="required">*</span></label>
+                <input type="text" formControlName="roleTitle" placeholder="Enter Your Role">
+            </section>
+            <section>
+                <label for="experience">Experience<span id="required">*</span></label>
+                <input type="text" formControlName="experience" placeholder="Enter Your Experience">
+            </section>
+            <section>
+                <label for="noofRoles">No. of Roles<span id="required">*</span></label>
+                <input type="text" formControlName="noofRoles" placeholder="Enter Your Roles">
+            </section>
+            <section>
+                <label for="category">Category</label>
+                <select name="category" id="category" formControlName="category">
+                    <option value="" disabled selected>Select</option>
+                    <option *ngFor="let item of categoryDropDown " [value]="item.id"> {{item.type}}</option>
+                </select>
+            </section>
+            <div id="skillscontainer">
+                <label for="skills" id="lastSkillsLabel">Skills<span id="required">*</span></label>
+                <div class="example-chip-list" id="scroll">
+                    <mat-chip-list #chipList aria-label="Skills selection">
+                        <mat-chip *ngFor="let skill of skills" [selectable]="selectable" [removable]="removable"
+                            (removed)="remove(skill)">
+                            {{skill}}
+                            <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+                        </mat-chip>
+                        <input name="skills" id="skills" placeholder="You can enter multiple skills set to this role"
+                            formControlName="skills" [matChipInputFor]="chipList"
+                            [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matChipInputAddOnBlur]="addOnBlur"
+                            (matChipInputTokenEnd)="add($event)">
+                    </mat-chip-list>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="lower-container">
+            <section>
+                <label for="postedDate">Posted Date</label>
+                <input type="date" formControlName="postedDate">
+            </section>
+            <section>
+                <label for="location">Location</label>
+                <input type="text" formControlName="location" placeholder="Enter Your Location">
+            </section>
+            <div id="lowercontainer">
+                <label for="RoleDescription" id="lastlabel">Role Description</label>
+                <textarea name="RoleDescription" placeholder="Enter Description" id="RoleDescription"
+                    formControlName="roleDescription"></textarea>
+            </div>
+        </div>
+        <footer id="footer">
+            <section id="footerButton">
+                <button mat-stroked-button mat-dialog-close color="primary" id="cancelbutton">Cancel</button>
+                <button mat-flat-button mat-dialog-close color="primary" id="savebutton"
+                    (click)="postOpportunityDetails()"><span *ngIf="this.userData.modalType === 'Add'"
+                        style="color: white;">Create </span> <span *ngIf="this.userData.modalType === 'edit'"
+                        style="color: white;">Edit</span> <span style="color: white;"> Opportunity</span></button>
+            </section>
+        </footer>
+    </form>
+</div>

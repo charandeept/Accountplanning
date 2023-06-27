@@ -1,0 +1,43 @@
+<div>
+  <form [formGroup]="vendorForm" id="vendorForm" (ngSubmit)="addVendorsData()">
+    <div id="vendorName">
+      <label>Vendor Name</label>
+      <input type="text" formControlName="vendorName" placeholder="Enter Vendor Name">
+      <small
+        *ngIf="this.vendorForm.get('vendorName')?.touched&& this.vendorForm.get('vendorName')?.hasError('required')"
+        class="errorMessage">Vendor Name should not be empty </small>
+    </div>
+    <div id="vendorServiceType">
+      <label>Service Type</label>
+      <select formControlName="serviceType">
+        <option value="">Select Service Type</option>
+        <option *ngFor="let item of serviceType" value="{{item}}">{{item}}</option>
+      </select>
+      <small
+        *ngIf="this.vendorForm.get('serviceType')?.touched&& this.vendorForm.get('serviceType')?.hasError('required')"
+        class="errorMessage"> Select a drop down</small>
+    </div>
+    <div id="vendorAddNew">
+      <button mat-flat-button id="addNew">+ Add New</button>
+    </div>
+  </form>
+  <div>
+    <table mat-table [dataSource]="vendorsTableData" matSort class="mat-elevation-z8"
+      (matSortChange)="tableSort($event)">
+      <ng-container matColumnDef="vendorName">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Vendor Name <img
+            src="./assets/images/sort_by_alphasortIcon.png" class="sortIcon"> </th>
+        <td mat-cell *matCellDef="let user"> {{user.vendorName}} </td>
+      </ng-container>
+      <ng-container matColumnDef="serviceType">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Vendor Service Type <img
+            src="./assets/images/sort_by_alphasortIcon.png" class="sortIcon"></th>
+        <td mat-cell *matCellDef="let user"> {{user.serviceType}} </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="vendorColumnsToDisplay"></tr>
+      <tr mat-row *matRowDef="let myRowData; columns: vendorColumnsToDisplay"></tr>
+    </table>
+  </div>
+
+</div>

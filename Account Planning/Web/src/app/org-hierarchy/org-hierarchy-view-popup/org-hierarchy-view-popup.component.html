@@ -1,0 +1,55 @@
+<div class="container">
+    <div class="container_profile column-flex">
+        <div class="profile">
+            <div>
+                <h2 id="name">{{this.user.name}}</h2>
+                <i class="fa-solid fa-pen" (click)="Edit()"></i>
+            </div>
+            <button mat-button mat-dialog-close id="close">
+                <mat-icon>close</mat-icon>
+            </button>
+        </div>
+        
+        <div>
+            <span class="field-value">{{this.user.gender}}</span> | <span class="field-value">{{this.user.designation}}</span>
+        </div>
+    </div>
+    <mat-divider></mat-divider>
+    <div class="container_profile">
+        <div class="profile-details">
+            <p class="field">EngagementLevel</p>
+            <p class="field-value">{{this.user.engagementLevelId}}</p>
+        </div>
+        <div class="profile-details">
+            <p class="field">Innova Solutions DM</p>
+            <p class="field-value">{{this.user.innovaDM_Name}}</p>
+        </div>
+        <div class="profile-details">
+            <p class="field">Reports to</p>
+            <p class="field-value">{{this.user.reportsTO_Name === '' ? 'TOP' : this.user.reportsTO_Name}}</p>
+        </div>
+        <div class="profile-details">
+            <p class="field">Influencer/KDM</p>
+            <p class="field-value">{{this.user.influencerOrKdm_Name}}</p>
+        </div>
+    </div>
+    <mat-divider></mat-divider>
+    <div class="container_profile">
+        <div class="profile-details">
+            <p class="field">LinkedIn</p>
+            <a class="field-value" [href]="this.user.linkedInUrl" target="_blank">{{this.user.linkedInUrl}}</a>
+        </div>
+        <div class="profile-details">
+            <p class="field">Persona</p>
+            <p class="field-value">{{this.user.persona}}</p>
+        </div>
+    </div>
+    <mat-divider></mat-divider>
+    <div class="container_profile">
+        <div class="profile-details">
+            <p class="field">Role Discription</p>
+            <p class="field-value">{{this.user.roleDescription}}</p>
+        </div>
+        
+    </div>
+</div>

@@ -1,0 +1,159 @@
+#top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 3%;
+    padding-right: 3%;
+    padding-bottom: 1%;
+    padding-top: 15px;
+
+    .closebar {
+        color: #80818B;
+    }
+}
+input.ng-touched.ng-invalid,select.ng-touched.ng-invalid{
+    border: 1.5px solid red !important;
+}
+.errorMessage{
+    color: red;
+    font-size: 12px;
+    margin-left: 34%;
+}
+.operatorErrorMessage{
+    color: red;
+    font-size: 12px;
+}
+#top h2 {
+    margin: 0;
+}
+
+
+.opacity {
+    color: #8798AD;
+
+}
+
+p {
+    font-size: small;
+}
+
+.buttons {
+
+    padding-right: 20px;
+    display: flex;
+    float: right;
+    margin-left: auto;
+    margin-top: 3%;
+    margin-bottom: 1%;
+
+    .create {
+        background-color: #0070CD;
+        color: white;
+
+
+
+    }
+
+    .cancel {
+        border: 1px solid #80818B;
+
+    }
+
+}
+
+mat-raised-button {
+    padding-right: 1%;
+}
+
+.metric-option,
+.value-option {
+
+    margin-left: 20%;
+    color: #747986;
+    font-weight: 500;
+
+}
+
+.operator-option {
+
+    margin-left: 16%;
+    width: 100%;
+
+    .labels {
+        display: flex;
+        float: left;
+        padding-right: 6%;
+        border: 5px, solid, red;
+        font-size: 13px;
+    }
+}
+
+label {
+    margin-bottom: 0px;
+    padding-left: 5px;
+}
+
+.metric-option {
+    padding: 3% 4% 3% 4%;
+    border-radius: 4px;
+    border: 1px solid #747986;
+    width: 63%;
+}
+
+.value-option {
+    padding: 3% 4% 3% 4%;
+    border-radius: 4px;
+    border: 1px solid #747986;
+    width: 63%;
+    margin-left: 95px;
+}
+
+
+.Metrics,
+.Operator,
+.Values {
+    margin-top: 4%;
+    color: #747986;
+
+}
+
+.Operator {
+    display: flex;
+}
+
+.Value {
+    border: 4px solid red;
+}
+
+.form {
+    border-top: 1px solid #80818B;
+    border-bottom: 1px solid #80818B;
+    margin-left: inherit;
+    margin-right: inherit;
+    width: inherit;
+    padding: 3% 3% 3% 3%;
+    padding-left: 16px;
+
+
+}
+
+.create {
+    color: rgb(0, 112, 205);
+}
+
+.Operator input[type="radio"]:checked+label {
+    color: rgb(0, 112, 205);
+}
+
+::ng-deep.mat-dialog-container {
+    padding: 0px !important;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    border-radius: 10px;
+
+}
+
+::ng-deep.mat-icon-button i,
+.mat-icon-button .mat-icon {
+    line-height: 2px !important;
+}

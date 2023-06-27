@@ -1,0 +1,72 @@
+<div class="container">
+    <div class="header">
+        <div>
+            <h2>{{userdata.cardType}} User Role</h2>
+            <span class="caption"><span [matTooltip]="Note">i</span> Manage Your User</span>
+        </div>
+        <button mat-button [mat-dialog-close]="isChecked" id="close">
+            <mat-icon>close</mat-icon>
+        </button>
+    </div>
+    <mat-divider></mat-divider>
+    <form class="form" [formGroup]="editUser">
+        <section>
+            <label for="id">ID</label>
+            <input *ngIf="isChecked" type="text" formControlName="id" class="input" [attr.disabled]="isChecked">
+            <input *ngIf="!isChecked" type="text" formControlName="id" class="input">
+        </section>
+        <section>
+            <label for="username" required>Name <span class="required">*</span> </label>
+            <input *ngIf="isChecked" type="text" formControlName="username" class="input" [attr.disabled]="isChecked">
+            <input *ngIf="!isChecked" type="text" formControlName="username" class="input">
+        </section>
+        <section>
+            <label for="email">Email Address</label>
+            <input *ngIf="!isChecked" type="text" [readonly]="!addPopUp" formControlName="emailAddress" class="input">
+            <input *ngIf="isChecked" type="text" [readonly]="!addPopUp" formControlName="emailAddress" class="input"
+                [attr.disabled]="isChecked">
+        </section>
+        <section>
+            <label for="designation" required>Designation <span class="required">*</span> </label>
+            <input *ngIf="!isChecked" type="text" formControlName="designation" class="input">
+            <input *ngIf="isChecked" type="text" formControlName="designation" class="input"
+                [attr.disabled]="isChecked">
+        </section>
+        <section>
+            <label for="roleId">Role</label>
+            <select *ngIf="isChecked" name="roleId" id="" formControlName="roleId" class="select">
+                <option *ngFor="let role of roles" value="{{role.userRoleId}}" [attr.disabled]="!isChecked">
+                    {{role.name}}
+                </option>
+            </select>
+            <select *ngIf="!isChecked" name="roleId" id="" formControlName="roleId" class="select">
+                <option *ngFor="let role of roles" value="{{role.userRoleId}}">
+                    {{role.name}}
+                </option>
+            </select>
+        </section>
+        <section>
+            <label for="isactive">IsActive</label>
+            <select name="isactive" id="" formControlName="isactive" class="select">
+                <option value="Yes" [disabled]="isChecked">Yes</option>
+                <option value="No" [disabled]="isChecked">No</option>
+            </select>
+        </section>
+    </form>
+    <div class="checkbox" *ngIf="addPopUp">
+        <input type="checkbox" (change)="onCheckboxChange($event)">
+        <p [ngStyle]="{'color': isChecked ? '#0070CD' : 'black'}">Want to add multiple users ?</p>
+    </div>
+    <div *ngIf="isChecked">
+        <input hidden type="file" #fileupload accept=".xlsx" (change)="onChange($event)" name="+ choose file">
+        <button (click)="fileupload.click()" id="choosefile">{{selectedFile}} <img class="attachfileimg"
+                src="../../../../assets/images/attach_file_add.svg"></button>
+        <p class="csvDownload">You can download this <a (click)="downloadTemplate()">.CSV</a> file to add multiple users
+        </p>
+    </div>
+    <mat-divider></mat-divider>
+    <mat-dialog-actions align="end">
+        <button mat-button mat-dialog-close id="cancel">Cancel</button>
+        <button mat-button (click)="modalFunction()" id="update">{{userdata.actionButtonText}}</button>
+    </mat-dialog-actions>
+</div>

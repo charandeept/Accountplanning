@@ -1,0 +1,54 @@
+<div id='breadcrum'>
+    <section>
+        <h2> <span class='fas fa-arrow-left' id="arrowIcon" routerLink="/companies-list"></span>Enablers</h2>
+        <p class="opacity">Manage your Enablers</p>
+    </section>
+    <div>
+        <button mat-flat-button id="addNew" style="font-weight: 600;" (click)="addEnabler()">&CirclePlus;
+            Enablers</button>
+
+    </div>
+</div>
+<mat-card class="enablers">
+    <div *ngFor="let enabler of enablersData">
+        <div class="head">
+            <h2>{{enabler.name}} ({{enabler.count}})</h2>
+            <div>
+                <a class="addLink" (click)="addLink(enabler)">&CirclePlus; Add Link</a>
+                <button class="ellipses" id="ellipses" mat-button [matMenuTriggerFor]="menu"><i
+                        class="fa-solid fa-ellipsis-v"></i></button>
+            </div>
+            <mat-menu #menu="matMenu">
+                <button mat-menu-item (click)="editEnabler(enabler)">Edit</button>
+                <button mat-menu-item (click)="removeEnabler(enabler)">Remove</button>
+            </mat-menu>
+        </div>
+        <div class="content">
+            <div fxLayout="row wrap" fxLayoutGap="16px grid">
+                <div *ngFor="let section of enabler.data">
+                    <mat-card class="section">
+                        <mat-card-title class="img" [ngStyle]="{'background-color': section.color}">
+                            <img src="../../assets/images/Rectangle 45.png" *ngIf="!section.showInitials" class="image">
+
+                            <div class="initials" *ngIf="section.showInitials" style="font-size: large;">
+                                {{section.initials}}
+                            </div>
+                        </mat-card-title>
+                        <mat-card-content>
+                            <h2 class="title">{{section.title}}</h2>
+                            <h2 class="authorName">{{section.authorName}}</h2>
+                            <div class="bottom">
+                                <a href={{section.link}}><u>View Link</u></a>
+                                <div class="edit-delete">
+                                    <i class="fa-solid fa-pen" (click)="editLink(section , enabler.name)"></i>
+                                    <i class="fa-solid fa-trash" (click)="removeEnablerCard(section)"></i>
+                                </div>
+                            </div>
+                        </mat-card-content>
+                    </mat-card>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</mat-card>

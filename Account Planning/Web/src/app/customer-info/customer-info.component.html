@@ -1,0 +1,183 @@
+<!-- <div> -->
+<div class="loader" *ngIf="loader">
+  <mat-spinner></mat-spinner>
+</div>
+<div id='breadcrum' *ngIf="!loader">
+  <section>
+    <h2> <span class='fas fa-arrow-left' id="arrowIcon"
+        routerLink="/companies-list"></span>{{userData.bussinessInformation.customerName}}</h2>
+    <p class="opacity">Manage Account Information </p>
+    <span (click)="openPopup()" id="editButton"> (<span class="fa-solid fa-pen"></span> Edit)</span>
+  </section>
+  <section id="updatedDate">
+    <p> Last Updated: {{userData?.bussinessInformation?.['modifiedOn'] | date:'medium'}}</p>
+  </section>
+</div>
+<div id="overviewCard" *ngIf="!loader">
+  <mat-card>
+    <mat-card-title class="margin0">Overview</mat-card-title>
+    <mat-card-content>
+      <div class="overview">
+        <span class="opacity"> Account Business Overview</span>
+        <div id="clientData">
+          <section id="bussinessOverview">
+            <p><label>Website </label> <a
+                href="userData.bussinessInformation.website"><span>{{userData.bussinessInformation.website}}</span></a>
+            </p>
+            <p><label>Industry </label> <span>{{userData.bussinessInformation.industryName}}</span></p>
+            <p><label>Company Size </label><span>{{userData.bussinessInformation.companySize}}</span></p>
+            <p><label>Headquaters </label><span>{{userData.bussinessInformation['headQuarters']}}</span></p>
+            <p><label>Speciality </label> <span>{{userData.bussinessInformation.speciality}}</span> </p>
+            <p><label class="margin0">Services Lines Offered</label></p>
+            <span>{{userData.bussinessInformation.servicesOffered}} </span>
+            <p><label>Technologies</label> <span>{{userData.bussinessInformation.techStack}}</span></p>
+          </section>
+          <section id="clientOverview">
+            <p><label>Client Partner </label><span>{{userData?.teamInfo?.clientPartnerName}}</span></p>
+            <p><label>Delivery Manager </label><span>{{userData?.teamInfo?.deliveryManager}}</span></p>
+            <p><label>Time Zone </label><span>{{userData?.teamInfo?.timezone}}</span></p>
+            <p><label>Delivery Model </label><span>{{userData?.teamInfo?.deliveryModel}}</span></p>
+            <p><label>Onshore Resources </label><span>{{userData?.teamInfo?.onshoreResources}}</span></p>
+            <p><label>Offshore Resources </label><span>{{userData?.teamInfo?.offshoreResources}}</span></p>
+            <p><label>Near Shore </label><span>{{userData?.teamInfo?.nearShore}}</span></p>
+          </section>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>
+<div id="customerAdditionalDetails" *ngIf="!loader">
+  <div id="vendorsBlock">
+    <mat-card class="vendor-table">
+      <mat-card-content>
+        <div class="table-responsive">
+          <table mat-table [dataSource]="dataSource">
+
+            <ng-container matColumnDef="vendors">
+              <th mat-header-cell *matHeaderCellDef> Other Vendors </th>
+              <td mat-cell *matCellDef="let element"> {{element.vendorName}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="service">
+              <th mat-header-cell *matHeaderCellDef> Services Lines Offered </th>
+              <td mat-cell *matCellDef="let element"> {{element.serviceType}} </td>
+            </ng-container>
+            <div class="table-content">
+              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </div>
+          </table>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  <div id="csatWithMood">
+    <div class="CSAT">
+      <mat-card>
+        <mat-card-title>CSAT <span [matTooltip]="csatInfoMessage">i</span> </mat-card-title>
+        <mat-card-content>
+          <div class="rating">
+            <ng-container *ngFor="let i of stars">
+              <i class="fa-solid fa-star" [ngClass]="{'active':i<=csatDataRating}"></i>
+            </ng-container>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    <div class="mood">
+      <mat-card>
+        <mat-card-title>Customer Mood</mat-card-title>
+        <mat-card-content>
+          <div class="customerMoodIcons">
+            <i class="fa-regular fa-face-frown-open fa-2x icons" [class.active-badIcon]="activeBadIcon"></i>
+            <i class="fa-regular fa-face-grin-beam fa-2x icons" [class.active-goodIcon]="activeGoodIcon"></i>
+            <i class="fa-regular fa-face-grin fa-2x icons" [class.active-excellentIcon]="activeExcellentIcon"></i>
+          </div>
+          <div class="iconColorCombination">
+            <section>
+              <span class="color">
+                <div class="badIcon"></div>
+              </span>
+              <span class="iconsExpression">Bad</span>
+            </section>
+            <section>
+              <span class="color">
+                <div class="goodIcon"></div>
+              </span>
+              <span class="iconsExpression">Good</span>
+            </section>
+            <section>
+              <span class="color">
+                <div class="excellentIcon"></div>
+              </span>
+              <span class="iconsExpression">Excellent</span>
+            </section>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+  <div class="financial">
+    <mat-card>
+      <mat-card-title>Financial Health</mat-card-title>
+      <mat-card-content>
+        <div [hidden]="!FinancialChart" class="charts">
+          <canvas id="canvas"></canvas>
+        </div>
+        <div class="iconColorCombination">
+          <section>
+            <span class="color">
+              <div class="badIcon"></div>
+            </span>
+            <span class="iconsExpression">Bad</span>
+          </section>
+          <section>
+            <span class="color">
+              <div class="goodIcon"></div>
+            </span>
+            <span class="iconsExpression">Good</span>
+          </section>
+          <section>
+            <span class="color">
+              <div class="excellentIcon"></div>
+            </span>
+            <span class="iconsExpression">Excellent</span>
+          </section>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  <div class="engagement">
+    <mat-card>
+      <mat-card-title>Engagement Health</mat-card-title>
+      <mat-card-content>
+        <div [hidden]="!EngagmentChart" class="charts">
+          <canvas id="canvas1"></canvas>
+        </div>
+        <div class="iconColorCombination">
+          <section>
+            <span class="color">
+              <div class="badIcon"></div>
+            </span>
+            <span class="iconsExpression">Bad</span>
+          </section>
+          <section>
+            <span class="color">
+              <div class="goodIcon"></div>
+            </span>
+            <span class="iconsExpression">Good</span>
+          </section>
+          <section>
+            <span class="color">
+              <div class="excellentIcon"></div>
+            </span>
+            <span class="iconsExpression">Excellent</span>
+          </section>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
+
+<!-- </div> -->

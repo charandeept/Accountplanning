@@ -1,0 +1,283 @@
+$g-nav-background-color: #FFF;
+$parent-background-color: #FFF;
+
+mat-list-option {
+  a label {
+    margin-top: 5px;
+  }
+  img{
+    margin-right: 0px;
+  }
+  margin-bottom:5px;
+}
+
+.mat-drawer {
+  height: 100% !important;
+  min-height: 100% !important;
+  background-color: $g-nav-background-color !important;
+
+  @media(min-width: 1024px) {
+    width: 5.5% !important;
+    min-width: 80px;
+  }
+
+  @media(max-width: 1024px) {
+    width: 5.5% !important;
+    min-width: 70px;
+  }
+
+  transition: all 1s;
+  overflow: hidden;
+  position: relative;
+}
+
+.data-label {
+  @media(min-width: 1024px) {
+    display: none;
+  }
+  color:#9ca5ae;
+}
+
+.mat-drawer-content {
+  overflow: hidden;
+  display: flex;
+}
+
+.mat-drawer:hover {
+  cursor: pointer;
+  transition: all 1s;
+  width: 16% !important;
+  // width: 20% !important;
+  min-width: 200px;
+
+  .data-label {
+    display: inline-block;
+    white-space: nowrap;
+    cursor: pointer;
+    color: #9ca5ae;
+  }
+
+  overflow: hidden;
+}
+
+.nav-item-button {
+  display: flex;
+  background-color: transparent;
+  border: none;
+  color: #FFF;
+}
+
+.nav-item-img {
+  color:white;
+  background-color: #9ca5ae;
+  border-radius: 4px;
+  min-width: 35px;
+  min-height: 35px;
+  max-width: 35px;
+  max-height: 35px;
+  margin-right: 15px;
+  font-weight: 700;
+}
+
+.nav-item-button:hover {
+
+  .nav-item-img {
+    background-color: #0070CD;
+  }
+  .data-label{
+    color:#0070CD;
+  }
+}
+
+.nav-item-img:hover {
+  background-color: #0070CD;
+  color: #FFF;
+}
+
+.navbar-container {
+  display: flex;
+  width: 100% !important;
+  height: 88% !important;
+
+}
+
+.help-box {
+  display: none;
+}
+
+.mat-drawer:hover .help-box {
+  display: flex;
+  transition: all 1s;
+}
+
+.mat-drawer-content {
+  width: 100%;
+  margin-left: 0px !important;
+}
+
+.main-content {
+  margin-left: 0px;
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+}
+
+/** Active Tab*/
+
+.activeTab {
+  .nav-item-img {
+    background-color: #0070CD;
+  }
+
+  .data-label {
+    color: #0070CD;
+  }
+
+  .nav-item-img:hover {
+    background-color: #0070CD;
+  }
+
+  // background: #0070CD;
+  // .data-label{
+  //   color: #FFF;
+  // }
+}
+
+
+
+/* 
+  ##Device = Desktops
+  ##Screen = 1281px to higher resolution desktops
+*/
+
+@media (min-width: 1281px) {
+
+  /* CSS */
+
+}
+
+/* 
+  ##Device = Laptops, Desktops
+  ##Screen = B/w 1025px to 1280px
+*/
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+
+  /* CSS */
+
+}
+
+/* 
+  ##Device = Tablets, Ipads (portrait)
+  ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) {
+
+  /* CSS */
+
+}
+
+/* 
+  ##Device = Tablets, Ipads (landscape)
+  ##Screen = B/w 768px to 1024px
+*/
+
+// @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+
+//   /* CSS */
+
+// .mat-drawer
+// {
+//   width: 8% !important;
+// }
+// .data-label
+// {
+//   display: none !important;
+// }
+
+// .mat-drawer:hover
+// {
+//   width: 22% !important;
+//   .data-label
+//   {
+//     display: inline-block !important;
+//   }
+// }
+
+// }
+
+/* 
+  ##Device = Low Resolution Tablets, Mobiles (Landscape)
+  ##Screen = B/w 481px to 767px
+*/
+
+// @media (min-width: 481px) and (max-width: 767px) {
+
+//   /* CSS */
+
+// .mat-drawer
+// {
+//   width: 12% !important;
+// }
+// .data-label
+// {
+//   display: none !important;
+// }
+
+// .mat-drawer:hover
+// {
+//   width: 25% !important;
+//   .data-label
+//   {
+//     display: inline-block !important;
+//   }
+// }
+
+
+// }
+
+/* 
+  ##Device = Most of the Smartphones Mobiles (Portrait)
+  ##Screen = B/w 320px to 479px
+*/
+
+// @media (min-width: 320px) and (max-width: 480px) {
+
+//   /* CSS */
+//   .help-box
+//   {
+//     display: none;
+//   }
+//   mat-sidenav-container
+// {
+//     position: fixed;
+//     z-index: 12;
+// }
+// .navbar-container
+// {
+//   width: 100% !important;
+//   .data-label
+//   {
+//     display: inline-block;
+//   }
+
+// }
+
+// .mat-drawer
+// {
+//   width: 15% !important;
+// }
+// .data-label
+// {
+//   display: inline-block !important;
+// }
+
+// .mat-drawer:hover
+// {
+//   width: 52% !important;
+//   .data-label
+//   {
+//     display: inline-block !important;
+//   }
+// }00000000000

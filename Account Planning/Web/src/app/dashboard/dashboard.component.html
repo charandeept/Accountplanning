@@ -1,0 +1,76 @@
+<div class="main-content">
+
+    <div id='breadcrum'>
+        <section>
+            <h2> <span class='fas fa-arrow-left' id="arrowIcon" routerLink="/companies-list"></span>Dashboard</h2>
+            <p class="opacity">Manage your Dashboard</p>
+        </section>
+        <div>
+            <button mat-flat-button id="addNew" (click)="addMetric()">&plus; Add Metric</button>
+        </div>
+    </div>
+
+
+
+    <div [ngClass]=" isSmallScreen$ ? 'small' : 'sub-container' ">
+        <!-- Widgets -->
+        <h1 class="metric-label">Metrics</h1>
+        <div class="content">
+
+            <div fxLayout="row wrap" fxLayoutGap="16px grid">
+
+                <div *ngFor="let user of widgetsData;let accounts=index">
+
+                    <mat-card>
+                        <mat-card-title>
+                            <!-- <img class="iconImage" src={{user.img}}> -->
+                            {{user.name}}
+
+                            <button id="ellipses" mat-button [matMenuTriggerFor]="menu"><i
+                                    class="fa-solid fa-ellipsis"></i></button>
+                            <mat-menu #menu="matMenu">
+                                <button mat-menu-item (click)="editMetric(user)">Edit</button>
+                                <button mat-menu-item (click)="deleteCard(user.cardid)">Remove</button>
+                            </mat-menu>
+                        </mat-card-title>
+                        <mat-card-content>
+                            <div class="container">
+                                <div class="col" id="rightvalue" (click)="showAccounts(user.cardid)">
+                                    <b>{{noOfAccounts[accounts].noofAccounts}}</b>
+                                </div>
+                                <div class="col" id="leftvalue"
+                                    [ngStyle]="{'color':getcolor(user.metricvalue , user.metricid)}">
+                                    <small class="metric-value">Accounts with value </small>
+                                    <span>{{user.operatorid}} {{user.metricvalue}}</span>
+                                </div>
+                            </div>
+                        </mat-card-content>
+                    </mat-card>
+                </div>
+            </div>
+        </div>
+
+        <div class="heat-maps">
+            <mat-card class="heatmap">
+                <!-- Engagement Health Heat Map -->
+                <div class="half-containers1">
+                    <mat-card-title>Engagement Health</mat-card-title>
+                    <mat-card-content>
+                        <ngx-charts-heat-map [scheme]="colorSchemeEngagementHealth" [view]="[400,250]"
+                            [innerPadding]="innerPadding" [results]="this.engagementHealthGet">
+                        </ngx-charts-heat-map>
+                    </mat-card-content>
+                </div>
+                <!-- Financial Health Heat Map-->
+                <div class="half-containers2">
+                    <mat-card-title>Financial Health</mat-card-title>
+                    <mat-card-content>
+                        <ngx-charts-heat-map [scheme]="colorSchemeFinanicalHealth" [view]="[400,250]"
+                            [innerPadding]="innerPadding" [results]="this.financialHealthGet">
+                        </ngx-charts-heat-map>
+                    </mat-card-content>
+                </div>
+            </mat-card>
+        </div>
+    </div>
+</div>

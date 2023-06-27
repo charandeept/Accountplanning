@@ -1,0 +1,140 @@
+#main {
+    display: inline-flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    #iconsContent {
+        height: 60%;
+        width: 100%;
+        display: inline-flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        #csatHeading {
+            text-align: center;
+
+            h2 {
+                margin: 0;
+            }
+
+            #scaleContent {
+                color: #8798AD;
+            }
+        }
+
+        #icons {
+            display: inline-flex;
+            column-gap: 40px;
+            width: 100%;
+            justify-content: center;
+            div {
+                width: 10%;
+                text-align: center;
+                color: #E5E5E5;
+                cursor: pointer;
+
+                P {
+                    margin: 5px;
+                }
+            }
+
+            #badRating:hover,
+            .active-badRating {
+                color: #FF4444;
+            }
+
+            #goodRating:hover,
+            .active-goodRating {
+                color: #FDD61A;
+            }
+
+            #excellentRating:hover,
+            .active-excellentRating {
+                color: #23C746;
+            }
+        }
+    }
+
+    #textContent {
+        padding: 2%;
+        width: 45%;
+         height: 40%;
+        p {
+            font-family: Inter;
+            font-size: 16px;
+            font-weight: 600;
+            line-height: 19px;
+            letter-spacing: 0em;
+            text-align: center;
+        }
+    }
+}
+// .loader{
+//     height: 100%;
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// #main{
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     flex-direction: column;
+//     height: 100%; 
+// }
+// #ratingText{
+//     color: #8798AD;
+// }
+// #icons{
+//     display: inline-flex;
+//     flex-wrap: wrap;
+//     div{
+//         width: 150px;
+//         height: 130px;
+//         margin: 5px;
+//         margin-top: 50px;
+//         text-align: center;
+//     }
+//     i{
+//         color: #DBDBDB;
+//         cursor: pointer;
+//     }
+//     #bad:hover{
+//         background-color: #A2DD3F;
+//         border-radius: 100px;
+//         border-radius: 70px;
+
+//     }
+//     #good:hover{
+//         background-color: #FDD61A;
+//         border-radius: 70px;
+
+//     }
+//     #excellent:hover{
+//         background-color:#FF7A17;
+//         border-radius: 100px;
+//         border-radius: 70px;
+
+
+//     }
+//     p{
+//         color:#8798AD;
+//     }
+// }

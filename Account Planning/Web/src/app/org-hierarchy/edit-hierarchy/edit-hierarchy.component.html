@@ -1,0 +1,100 @@
+<div id='breadcrum'>
+    <section>
+        <h2> <span class='fas fa-arrow-left' id="arrowIcon" routerLink="/org-hierarchy"></span>Edit Hierarchy</h2>
+        <p class="opacity">Manage all your Customer's Information</p>
+    </section>
+    <div>
+        <button mat-flat-button id="addNew" (click)="addPopup()"><i class="fa-solid fa-plus"></i> Add New</button>
+    </div>
+</div>
+<div class="body">
+    <div class="searchBar">
+        <div class="d-flex">
+            <div class="col-md-6">
+                <div class="form">
+                    <i class="fa fa-search"></i>
+                    <input id="search" type="text" class="form-control form-input"
+                        placeholder="Search by Name, Designation" [(ngModel)]='searchText' (input)="Search()">
+                </div>
+            </div>
+        </div>
+        <div class="scrollable">
+            <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+                <ng-container matColumnDef="name">
+                    <th mat-header-cell *matHeaderCellDef>Person Name
+                        <img src="./assets/images/sort_by_alpha.png" class="sort" id="Name" (click)="ApplySort($event)">
+                        <img src="./assets/images/filter_alt.png" [matMenuTriggerFor]="menu" class="filter"
+                            value="personName" [id]="'Name'" (click)="FilterDataSpread($event)">
+                    </th>
+                    <td mat-cell *matCellDef="let element">{{element.name}}</td>
+                </ng-container>
+                <ng-container matColumnDef="gender">
+                    <th mat-header-cell *matHeaderCellDef>Gender
+                    </th>
+                    <td mat-cell *matCellDef="let element">{{element.gender}}</td>
+                </ng-container>
+                <ng-container matColumnDef="designation">
+                    <th mat-header-cell *matHeaderCellDef>Designation
+                        <img src="./assets/images/filter_alt.png" [matMenuTriggerFor]="menu"
+                            (click)="FilterDataSpread($event)" class="filter" value="desigantion" [id]="'Designation'">
+                    </th>
+                    <td mat-cell *matCellDef="let element">{{element.designation}}</td>
+                </ng-container>
+                <ng-container matColumnDef="influencerOrKdm_Name">
+                    <th mat-header-cell *matHeaderCellDef>Influencer/KDM
+                    </th>
+                    <td mat-cell *matCellDef="let element">{{element.influencerOrKdm_Name}}</td>
+                </ng-container>
+                <ng-container matColumnDef="engagementLevelId">
+                    <th mat-header-cell *matHeaderCellDef>Engagement Level
+                    </th>
+                    <td mat-cell *matCellDef="let element">{{element.engagementLevelId}}</td>
+                </ng-container>
+                <ng-container matColumnDef="innovaDM_Name">
+                    <th mat-header-cell *matHeaderCellDef>Innova DM
+                    </th>
+                    <td mat-cell *matCellDef="let element">{{element.innovaDM_Name}}</td>
+                </ng-container>
+                <ng-container matColumnDef="reportsTO_Name">
+                    <th mat-header-cell *matHeaderCellDef>Reports to
+                    </th>
+                    <td mat-cell *matCellDef="let element">{{element.reportsTO_Name}}</td>
+                </ng-container>
+                <ng-container matColumnDef="action">
+                    <th mat-header-cell *matHeaderCellDef>Actions</th>
+                    <td mat-cell *matCellDef="let element">
+                        <i id="actionIcon" class="fa-solid fa-eye" (click)="OpenViewPopup(element)"></i>
+                        <i id="actionIcon" class="fa-solid fa-pen" (click)="editPopup(element)"></i>
+                        <i class="fa-solid fa-trash" id="actionIcon" (click)="deleteEmployee(element.id)"></i>
+                    </td>
+                </ng-container>
+                <div class="table-content">
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns ;sticky: true"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                </div>
+            </table>
+            <p class="noData" *ngIf="showNoDataSection">No data to display</p>
+            <mat-paginator class="paginator" [pageSize]="pageSize" [pageSizeOptions]="[5, 10, 20, 50,]"
+                (page)="pageChange($event)">
+            </mat-paginator>
+        </div>
+        <mat-menu #menu='matMenu' class="mat-menu">
+            <form class="filter-form" [formGroup]="filterForm">
+                <div class="form-group" (click)="$event.stopPropagation()">
+                    <label>Operator</label>
+                    <select class="custom-select" name="operator" formControlName="operator">
+                        <option *ngFor="let option of filterOperators">{{option}}</option>
+                    </select>
+                </div>
+                <div class="form-group" (click)="$event.stopPropagation()">
+                    <label>Value</label>
+                    <input type="search" class="form-control" name="value" formControlName="value">
+                </div>
+                <div class="buttons">
+                    <button mat-raised-button class="apply" type="submit" (click)="ApplyFilter()">Apply Filter</button>
+                    <button mat-raised-button class="clear" type="reset" (click)="ClearFilter()">Clear Filter</button>
+                </div>
+            </form>
+        </mat-menu>
+    </div>
+</div>

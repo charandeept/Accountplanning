@@ -1,0 +1,96 @@
+<div class="editpopup">
+    <header>
+        <button mat-button mat-dialog-close id="close">
+            <mat-icon>close</mat-icon>
+        </button>
+        <h2 mat-dialog-title id="EditHierarchy">{{userdata.titleText}} Hierarchy</h2>
+
+        <p class="opacity">Manage your Customer information</p>
+
+    </header>
+
+    <form [formGroup]="editform" id="EditHierarchy">
+
+        <div class="mid-container">
+            <section>
+                <label for="Name">Name<span id="required">*</span></label>
+                <div class="name">
+                    <input type="text" formControlName="name" placeholder="Enter Your Name">
+                    <mat-error *ngIf="myError('name','required')">Name can't be empty</mat-error>
+                </div>
+            </section>
+            <section>
+                <label for="designation">Designation<span id="required">*</span></label>
+                <div class="designation">
+                    <input type="text" formControlName="designation" placeholder="Enter Your Designation">
+                    <mat-error *ngIf="myError('designation','required')">Designation can't be empty</mat-error>
+                </div>
+            </section>
+
+            <section>
+                <label for="Gender">Gender</label>
+                <select name="Gender" id="" formControlName="gender">
+                    <option value="" disabled selected>Select</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>
+                </select>
+            </section>
+        </div>
+
+        <div class="lower-container">
+            <section>
+                <label for="kdm">Influencer/KDM<span id="required">*</span></label>
+                <select #selectedvalue (change)="updatedkdmid(selectedvalue.value)" name="kdm" id="kdm"
+                    formControlName="kdm">
+                    <option value="" disabled selected>Select</option>
+                    <option *ngFor="let kdm of KDM" value="{{kdm.id}}">{{kdm.name}}</option>
+                </select>
+            </section>
+            <section>
+                <label for="ReportsTo">Reports To</label>
+                <select #selected name="ReportsTo" id="" formControlName="reportsTo">
+                    <option value="" disabled selected>Select</option>
+                    <option *ngFor="let report of reportTo" value="{{report.id}}">{{report.name}}</option>
+                </select>
+            </section>
+            <section>
+                <label for="EngagementLevel">Engagement Level<span id="required">*</span></label>
+                <select name="EngagementLevel" id="" formControlName="engagementLevel">
+                    <option value="" disabled selected>Enter Engagement Level</option>
+                    <option *ngFor="let engagement of engagementLevels" value="{{engagement.id}}">{{engagement.name}}
+                    </option>
+                </select>
+            </section>
+
+            <section>
+                <label for="InnovaDM">Innova Solutions DM</label>
+                <select name="innovaUsers" id="" formControlName="innovaDM">
+                    <option value="" disabled selected>Enter</option>
+                    <option *ngFor="let innovaUser of innovaUsers" value="{{innovaUser.id}}">{{innovaUser.name}}
+                    </option>
+                </select>
+            </section>
+            <section>
+                <label for="LinkedIn">LinkedIn</label>
+                <input type="text" placeholder="Enter or Paste LinkedIn URL" formControlName="linkedInUrl">
+            </section>
+            <div class="textfield" id="personaContainer">
+                <label for="Persona" id="lastlabel">Persona</label>
+                <textarea name="Persona" placeholder="Enter Persona" id="Persona" formControlName="persona"></textarea>
+            </div>
+            <div id="lowercontainer" class="textfield">
+                <label for="RoleDescription" id="lastlabel">Role Description</label>
+                <textarea name="RoleDescription" placeholder="Enter Description" id="RoleDescription"
+                    formControlName="roleDescription"></textarea>
+            </div>
+        </div>
+        <footer id="footer">
+            <section id="footerButton">
+                <button mat-stroked-button mat-dialog-close color="primary" id="cancelbutton">Cancel</button>
+                <button mat-flat-button [disabled]="!editform.valid" formmat-dialog-close color="primary"
+                    id="savebutton" (click)="actionFunction()">{{userdata.actionButtonText}}</button>
+            </section>
+        </footer>
+    </form>
+</div>

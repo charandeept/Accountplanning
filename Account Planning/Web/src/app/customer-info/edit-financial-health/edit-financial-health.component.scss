@@ -1,0 +1,20 @@
+#financialDiv{
+    margin:10px;
+    mat-label{
+        font-family: Inter;
+        font-size: 18px;
+        display: block;
+        font-weight: 600;
+        margin: 5px;
+        color:#222222
+    }
+    mat-radio-button{
+        margin: 5px;
+        font-family: Inter;
+        font-size: 17px;
+        font-weight: 600;
+    }
+    .mat-radio-checked{
+        color: #0070CD !important;
+    }
+}

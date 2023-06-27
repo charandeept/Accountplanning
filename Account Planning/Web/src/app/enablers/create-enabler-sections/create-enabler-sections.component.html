@@ -1,0 +1,37 @@
+<div class="body">
+    <div class='create-metric'>
+        <div id='top'>
+            <section>
+                <h2>{{data.cardType}} {{this.data.title}}</h2>
+                <p class="opacity">Set Enabler Information</p>
+            </section>
+            <section class="closebar">
+                <button mat-icon-button class="close-button" mat-dialog-close="true">
+                    <mat-icon class="close-icon">close</mat-icon>
+                </button>
+            </section>
+        </div>
+        <form class="form" [formGroup]="cardForm">
+            <div>
+                <div class="Titles">
+                    <label class="title">Title </label>
+                    <input type="input" class="title-input" matInput formControlName="title">
+                </div>
+                <div class="AuthorNames">
+                    <label for="authorName" class="authorName">Author Name </label>
+                    <input type="input" class="authorName-input" matInput formControlName="authorName">
+                </div>
+                <div class="Links">
+                    <label for="link" class="link">Link </label>
+                    <input type="input" class="link-input" matInput formControlName="link">
+                </div>
+            </div>
+
+            <div mat-dialog-actions class="buttons">
+                <button mat-button class="cancel" (click)="close()">Cancel</button>
+                <button mat-raised-button cdkFocusInitial type="submit" class="create"
+                    (click)="modalAction(data)">{{data.actionButtonText}}</button>
+            </div>
+        </form>
+    </div>
+</div>

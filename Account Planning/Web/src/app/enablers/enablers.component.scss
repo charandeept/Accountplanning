@@ -1,0 +1,108 @@
+.main-content {
+    padding: 8px;
+    background-color: #fafafa;
+    margin: -8px 0px -24px 0px;
+}
+
+#breadcrum {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+    height: 10%;
+}
+
+#breadcrum h2 {
+    margin: 0;
+    cursor: pointer;
+}
+
+#arrowIcon {
+    font-size: 18px;
+    padding-right: 9px;
+}
+
+.opacity {
+    opacity: 0.5;
+    display: inline-block;
+    margin-bottom: 2px;
+    font-size: 12px;
+    padding: 0px 0px 0px 25px;
+}
+
+#addNew {
+    background: #23C746;
+    color: white;
+}
+
+.section{
+    // border:2px solid red; 
+    width: 200px;
+    height: 200px;  
+}
+.content{
+    // border: 2px solid blue;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.head{
+    display: flex;
+    justify-content: space-between;
+    padding-top: 0%;
+    border-bottom: 1px solid #e8e5e5;
+}
+.addLink{
+    color:#0070CD;
+    font-weight: 600;
+    font-size: 12px;
+}
+.bottom{
+    display: flex;
+    justify-content: space-between;
+}
+.edit-delete{
+    color: grey;
+}
+i{
+    padding-left: 5px;
+}
+.img{
+    width: 170px;
+    height: auto;
+}
+.title{
+    font-size: 16px;
+    font-weight: 600; 
+    padding-bottom: 0%;
+    margin-bottom: 0%; 
+}
+.authorName{
+    font-size: 12px;
+    font-weight: 500;
+    padding-bottom: 0%;
+    margin-bottom: 0%;
+}
+.img{
+    width:170px;
+    height:80px;
+    display:flex;
+    justify-content: center;
+    align-items:center;
+}
+.initials{
+    color:#fafafa;
+    background-color: rgb(180, 167, 167); 
+    padding: 2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius:50%;
+    width:50px;
+    height: 50px;
+    font-weight: 600;
+}
+.image{
+    width:170px;
+    height:80px;
+
+}

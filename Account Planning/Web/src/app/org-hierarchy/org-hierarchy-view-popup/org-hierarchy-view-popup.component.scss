@@ -1,0 +1,58 @@
+.container{
+    padding: 15px;
+    overflow: hidden;
+}
+.container_profile{
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
+    text-transform: capitalize;
+}
+.flex{
+    display: flex;
+}
+.column-flex{
+    flex-direction: column;
+}
+
+.profile{
+    display: flex;
+    justify-content: space-between;
+}
+
+.profile-details{
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+}
+
+p{
+    padding: 0;
+    margin: 0;
+}
+
+.field{
+    color: rgb(165, 165, 165);
+}
+
+.field-value{
+    font-weight: 600;
+}
+
+#name{
+    display: inline;
+    padding-right: 30px;
+}
+.fa-pen{
+    color: rgb(51, 95, 255);
+}
+.fa-pen:hover{
+    color: rgb(36, 106, 167);
+    cursor: pointer;
+}
+
+a{
+    cursor: pointer;
+    text-transform: lowercase;
+    text-decoration: none;
+}

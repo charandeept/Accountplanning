@@ -1,0 +1,148 @@
+
+#EditHierarchy{
+    overflow-y: scroll;
+}
+header{
+    
+    border-bottom: 2px solid rgb(219, 219, 219);   
+}
+#EditHierarchy{
+    margin:0px;
+}
+#close{
+    float:right; 
+}
+#footer{
+    float: right;
+}
+#footerButton{
+    width:100%;
+}
+label{
+    width:50%;
+}
+span{
+    color:red;
+}
+.mid-container{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width:100%;
+    border-bottom: 2px solid rgb(219, 219, 219);
+    padding: 20px 0px 20px 0px;
+}
+.lower-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width:100%;
+    padding: 20px 0px 20px 0px;
+    
+}
+section{
+    display: flex;
+    width: 47%;
+    margin: 0% 0% 2% 0%;
+    height: auto;
+}
+#lowercontainer{
+    display: flex;
+    flex-wrap: wrap;
+    width:100%;
+    justify-content: space-between;
+    border-bottom: 2px solid rgb(219, 219, 219); 
+    height: auto; 
+}
+textarea{
+    width:84%;
+    margin:0px 6px 10px 0px;
+    padding: 10px;
+    height: 70%; 
+    resize: none;
+    border-radius: 5px; 
+    border: 1px solid rgb(169, 169, 169);
+}
+#lastlabel{
+    width: auto; 
+}
+
+input, select{
+    width: 100%;
+    border-radius: 5px;
+    padding: 0px 10px 0px 10px;
+    border: 1px solid rgb(169, 169, 169);
+    height: 35px;
+}
+
+textarea{
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 24px;
+}
+  
+#cancelbutton{
+    float: right;
+    margin: 0px 15px 0px 0px;
+}
+#savebutton{
+    float: right;
+    color: white;
+}
+@media (max-width:1115px){
+    .mid-container,.lower-container{
+       flex-direction: column;
+       justify-content:initial
+   }
+   .mid-container section{
+       margin: 10px;
+   }
+
+   #lowercontainer, #personaContainer{
+    margin: 0px 0px 10px 0px;
+    justify-content: initial;
+   }
+   #lastlabel{
+    width: 30%;
+   }
+
+    section{
+       width: 90%;
+   }
+   #EditHierarchy{
+    overflow-y: scroll;
+    overflow-x: hidden;
+
+   }
+   .lower-container{
+    margin: 10px;
+    padding: 0px;
+   }
+   #RoleDescription, #Persona{
+    height: 40px;
+    width: 60%;
+
+   }
+   
+   
+}
+#savebutton{
+    background-color: #0070CD;
+}
+
+.textfield{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width:100%;
+    height: auto;
+    padding: 0px;
+    
+}
+.name,.designation{
+    width:100%;
+}
+
+
+
+    

@@ -1,0 +1,112 @@
+p ,h2{
+    font-size: 17px;
+    margin: 0;
+    padding: 0;
+}
+.container{
+    padding: 20px;
+}
+.caption{
+    font-size: 14px;
+    opacity: 0.5;
+    position: relative;
+    top: -5px;
+}
+.header{
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 10px;
+}
+#close{
+    height: 50%;
+}
+
+.form{
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+}
+label{
+    width:50%;
+}
+section{
+    display: flex;
+    width: 47%;
+    margin: 0% 2% 2% 0%;
+    height: auto;
+}
+.input, .select{
+    width: 100%;
+    border-radius: 5px;
+    padding: 0px 10px 0px 10px;
+    border: 1px solid rgb(169, 169, 169);
+    height: 35px;
+}
+.checkbox{
+    margin-left: 125px;
+    display: flex;
+}
+input:read-only{
+    opacity: .7;
+}
+#cancel{
+    color: #0070CD;
+    background-color: #fff;
+    border: solid 1px #000;
+}
+#update{
+    background-color: #0070CD;
+    color: #fff;
+}
+
+@media (max-width:1115px){
+    .form{
+        flex-direction: column;
+    }
+    label{
+        width:100%;
+    }
+    section{
+        display: flex;
+        width: 95%;
+        margin: 0% 5% 5% 0%;
+        height: auto;
+    }
+}
+
+.req{
+    border-color: red;
+}
+
+.mat-tooltip-trigger{
+    background-color: rgb(102, 98, 98);
+    padding:4px;
+    padding-left: 8px;
+    padding-right: 8px;
+    border-radius: 50%;
+    color:white;
+    cursor:pointer;
+}
+
+#choosefile{
+    width: 200px;
+    background-color: white;
+    border: 0.5px solid grey;
+    border-radius: 4px;
+    margin-left: 125px;
+}
+.attachfileimg{
+    float: right;
+    margin-left: left;
+}
+.csvDownload{
+    margin-left: 125px;
+    font-size: 14px;
+    a{
+        color: #0070CD;
+        font-weight: bold;
+    }
+    a:hover{
+        cursor: pointer;
+    }
+}

@@ -1,0 +1,24 @@
+<div id="main" *ngIf="dataConsist">
+    <div id="csatBody">
+        <div class="mainDiv">
+            <h1>CSAT</h1>
+            <p>Add your review on a scale of 1-5</p>
+        </div>
+        <div class="rating">
+            <ng-container *ngFor="let i of stars">
+                <i class="fa-sharp fa-solid fa-star fa-5x" (click)="updateRating(i)"
+                    [ngClass]="{'active': i<=selectedRating}"></i>
+            </ng-container>
+            <p>{{selectedRatingMessage}}</p>
+        </div>  
+    </div>
+    <div id="csatFooter">
+        <form [formGroup]="csatForm" (ngSubmit)="postingCSATData()">
+            <mat-checkbox color="primary" (click)="addComment()" [checked]="radioButtonChecked" >Add Comments</mat-checkbox>
+            <textarea id="commentBox" formControlName="comments" *ngIf="radioCommentBox"></textarea>
+        </form>
+    </div>
+</div>
+<div *ngIf="!dataConsist" class="loader">
+    <mat-spinner></mat-spinner>
+ </div>

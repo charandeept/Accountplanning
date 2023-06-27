@@ -1,0 +1,34 @@
+<mat-drawer-container class="navbar-container" hasBackdrop="false" id="navbarbutton">
+    <mat-drawer #sideMenu class="h-100" [mode]="mobileQuery.matches ? 'over' : 'side'" opened>
+        <div class="row  h-100">
+            <div class="h-75 w-100">
+                <mat-selection-list class="h-100" [multiple]="false" routerLinkActive="active-group">
+                    <mat-list-option class="mx-2" *ngFor="let navItem of navbarMenu" [value]="navItem"
+                        class="  text-white " routerLinkActive="activeTab">
+                        <a *ngIf="navItem.code != 'p3'" class="nav-item-button py-2" routerLink="{{navItem.url}}">
+                            <img class="ml-4 nav-item-img" src="{{navItem.icon}}">
+                            <label class="ml-2 data-label" for="{{navItem.displayText}}">
+                                {{navItem.displayText}}
+                            </label>
+                        </a>
+                        <a *ngIf="navItem.code == 'p3'" class="nav-item-button py-2" (click)="customerInfo()">
+                            <img class="ml-4 nav-item-img" src="{{navItem.icon}}">
+                            <label class="ml-2 data-label" for="{{navItem.displayText}}">
+                                {{navItem.displayText}}
+                            </label>
+                        </a>
+
+                        <!-- <ng-template [ngIf]="!navItem.isExapand">
+                            <mat-divider class="bg-secondary"></mat-divider>
+                        </ng-template> -->
+                    </mat-list-option>
+                </mat-selection-list>
+            </div>
+        </div>
+    </mat-drawer>
+    <mat-drawer-content>
+        <div class="main-content">
+            <router-outlet></router-outlet>
+        </div>
+    </mat-drawer-content>
+</mat-drawer-container>

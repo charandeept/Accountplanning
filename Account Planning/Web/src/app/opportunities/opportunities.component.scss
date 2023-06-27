@@ -1,0 +1,124 @@
+* {
+  margin-bottom: 0;
+}
+mat-card {
+  margin: 5px;
+}
+#editButton {
+  color: #0070CD;
+  opacity: 1;
+  cursor: pointer;
+  font-size: 12px;
+}
+#arrowIcon {
+  margin-right: 10px;
+}
+#updatedDate {
+  color: #8798AD;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  line-height: 0;
+}
+#breadcrum {
+  h2 {
+    margin-bottom: 5px;
+  }
+}
+#opprtunitiesBody {
+  display: flex;
+  flex-wrap: wrap;
+  height: 90%;
+}
+#opportunitiesLeft {
+  width: 50%;
+  min-width: 600px;
+}
+#businessRoadmap {
+  min-height: 300px;
+  min-width: 600px;
+}
+#painpointCatalog {
+  display: flex;
+}
+#painpoints {
+  width: 50%;
+  min-height: 200px;
+  min-width: 295px;
+}
+#catalogueAwareness {
+  width: 50%;
+  min-height: 200px;
+  min-width: 295px;
+}
+#opportunitiesList {
+  width: 50%;
+  mat-card{
+    max-height: 510px; min-width: 600px;overflow: scroll;
+  }
+  mat-card-title {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+}
+
+.mat-menu-item:hover:not([disabled]) {
+  background: #EDF5FB;
+}
+#newOpportunities {
+  color: #23C746;
+}
+#addOption {
+  color: white;
+  background-color: #23C746;
+  padding-left: 5px;
+  padding-right: 5px;
+  width: 25px;
+  height: 25px;
+  border-radius: 100%;
+}
+.sigleOpportunitiesList{
+  min-height: 100px;
+}
+.sigleOpportunitiesList mat-card-content{
+  display: flex;
+  justify-content: space-between;
+}
+.sigleOpportunitiesList p{
+  margin: 0;
+}
+.opportunitiesDetails{
+  margin-left: 20px;
+}
+.opportunitiesIconDetails{
+  display: flex;
+  width: 80%x;
+  min-width: 400px;
+} 
+.bold{
+  font-weight: bolder;
+}
+.opacity{
+  color: #80818B;
+}
+.OpportunitiesCity{
+  margin-top: 5px !important;
+}
+.OpportunitiesCity span{
+  color: #0070CD;
+  background: #EDF5FB;
+  margin: 5px;
+  padding: 3px;
+}
+
+.bookMark{
+  display: flex;
+  justify-content: flex-end;
+}
+
+.BookmarkUpdatedDetails{
+     display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}

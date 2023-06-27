@@ -1,0 +1,32 @@
+<div id="main" *ngIf="dataConsist">
+   <div id="iconsContent">
+      <div id="csatHeading">
+         <h2>Customer Mood</h2>
+         <p id="scaleContent">Add your review on a scale of Satisfaction</p>
+      </div>
+      <div id="icons">
+         <div id="badRating" [class.active-badRating]="activeBadRating">
+            <i class="fa-regular fa-face-frown-open  fa-5x"   (click)="customerMood(1)"></i>
+            <p>Bad</p>
+         </div>
+         <div id="goodRating"  [class.active-goodRating]="activeGoodRating" >
+            <i class="fa-regular fa-face-laugh-beam fa-5x" (click)="customerMood(2)"></i>
+            <p>Good</p>
+         </div>
+         <div id="excellentRating"[class.active-excellentRating]="activeExcellentRating" >
+            <i class="fa-regular fa-face-laugh fa-5x" id="excellent" (click)="customerMood(3)"></i>
+            <p>Excellent</p>
+         </div>
+      </div>
+   </div>
+   <div id="textContent">
+      <p *ngIf="activeBadRating">“Customer is unhappy/ not satisfied. Customer is anticipating improvements and has provided feedback”</p>
+      <p *ngIf="activeGoodRating">“Customer is neutral. Customer has not provided any appreciation/ feedback in the last three months
+         ”</p>
+      <p *ngIf="activeExcellentRating">“Customer is happy/ satisfied. Customer has provided appreciation / positive feedback in the past three months”
+      </p>
+   </div>
+</div>
+<div *ngIf="!dataConsist" class="loader">
+   <mat-spinner></mat-spinner>
+</div>

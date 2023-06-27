@@ -1,0 +1,74 @@
+<!-- <div class="editpopup">
+    <header>
+        <button mat-button mat-dialog-close id="close">
+            <mat-icon>close</mat-icon>
+        </button>
+        <h2 mat-dialog-title id="EditHierarchy">Edit Hierarchy</h2>
+
+        <p class="opacity">Manage your Customer information</p>
+
+    </header>
+
+    <form [formGroup]="editform" id="EditHierarchy">
+
+        <div class="mid-container">
+            <section>
+                <label for="Name">Name</label>
+                <input type="text" formControlName="name" placeholder="Enter Your Name">
+            </section>
+            <section>
+                <label for="designation">Designation<span id="required">*</span></label>
+                <input type="text" formControlName="designation" placeholder="Enter Your Designation">
+            </section>
+
+            <section>
+                <label for="Gender">Gender</label>
+                <select name="Gender" id="" formControlName="gender">
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>
+                </select>
+            </section>
+        </div>
+
+        <div class="lower-container">
+            <section>
+                <label for="kdm">Influencer/KDM<span id="required">*</span></label>
+                <select name="kdm" id="kdm" formControlName="kdm">
+                    <option *ngFor="let kdm of KDM" value="{{kdm.id}}">{{kdm.name}}</option>
+                </select>
+            </section>
+            <section>
+                <label for="ReportsTo">Reports To</label>
+                <select #selectedId  name="ReportsTo" id="" formControlName="reportsTo">
+                    <option *ngFor="let report of reportTo" value="{{report.id}}">{{report.name}}</option>
+                </select>
+            </section>
+            <section>
+                <label for="EngagementLevel">Engagement Level<span id="required">*</span></label>
+                <select name="EngagementLevel" id="" formControlName="engagementLevel">
+                    <option *ngFor="let engagement of engagementLevels" value="{{engagement.id}}">{{engagement.name}}</option>
+                </select>
+            </section>
+
+            <section>
+                <label for="PersonInContact">PM In Contact</label>
+                <input type="text" placeholder="Enter Person Name" formControlName="pmInContact">
+            </section>
+            <section>
+                <label for="LinkedIn">LinkedIn</label>
+                <input type="text" placeholder="Enter Your Name" formControlName="linkedInUrl">
+            </section>
+            <div id="lowercontainer">
+                <label for="RoleDescription" id="lastlabel">Role Description</label>
+                <textarea name="RoleDescription" id="RoleDescription" formControlName="roleDescription"></textarea>
+            </div>
+        </div>
+        <footer id="footer">
+            <section id="footerButton">
+                <button mat-stroked-button mat-dialog-close color="primary" id="cancelbutton">Cancel</button>
+                <button mat-flat-button mat-dialog-close color="primary" id="savebutton" >Save & Update</button>
+            </section>
+        </footer>
+    </form>
+</div> -->

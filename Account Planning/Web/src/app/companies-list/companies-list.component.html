@@ -1,0 +1,100 @@
+<div class="Dashboard">
+    <div class='header'>
+        <section>
+            <h2>Account</h2>
+            <p class="opacity">Manage your Accounts List</p>
+        </section>
+        <section class="buttons">
+            <button mat-raised-button class="importUsers" [style.display]="isVisible ? 'block' : 'none'"
+                routerLink="import-users">+ Import Users</button>
+            <button mat-raised-button class="dashboard" routerLink="/dashboard"
+                [style.display]="isVisible ? 'block' : 'none'"><img src="./assets/images/dashboard.png">
+                Dashboard</button>
+
+            <button mat-raised-button class="addCust" (click)="addOpenPopup()">+ Add Account</button>
+        </section>
+    </div>
+    <div class="filter-bar">
+        <form #input="ngForm">
+            <input class="filter-input" type="input" placeholder="Search Account" (input)="gridFilter($event)" matInput
+                ngModel name="value" #value="ngModel" autocomplete="off">
+        </form>
+    </div>
+    <div class="list">
+        <table mat-table [dataSource]="dataSource$" class="mat-elevation-z8" matSort
+            (matSortChange)="applySort($event)">
+            <ng-container matColumnDef="customerName">
+                <th mat-header-cell *matHeaderCellDef>Account
+                    Name<img src="./assets/images/sort_by_alpha.png" class="sort" mat-sort-header><img
+                        src="./assets/images/filter_alt.png" [matMenuTriggerFor]="menu" class="filter"
+                        value="customerName" [id]="'customerName'" (click)="getColumnName($event)"></th>
+                <td mat-cell *matCellDef="let element" (click)="getAccountId(element)">{{element.customerName}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="createdOn">
+                <th mat-header-cell *matHeaderCellDef>Created On <img src="./assets/images/sort_by_alpha.png"
+                        class="sort" mat-sort-header>
+                </th>
+                <td mat-cell *matCellDef="let element">{{element.createdOn | date:'medium'}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="modifiedBy">
+                <th mat-header-cell *matHeaderCellDef>Modified By <img src="./assets/images/sort_by_alpha.png"
+                        class="sort" mat-sort-header>
+                </th>
+                <td mat-cell *matCellDef="let element">{{element.modifiedBy}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="modifiedOn">
+                <th mat-header-cell *matHeaderCellDef>Modified Date <img src="./assets/images/sort_by_alpha.png"
+                        class="sort" mat-sort-header>
+                </th>
+                <td mat-cell *matCellDef="let element">{{element.modifiedOn | date:'medium'}}</td>
+            </ng-container>
+
+            <!-- Navigation need to be added for edit and view -->
+            <ng-container matColumnDef="action">
+                <th mat-header-cell *matHeaderCellDef>Action</th>
+                <td mat-cell *matCellDef="let element"><i class="fa-solid fa-pen" (click)="openPopup(element)"></i> <i
+                        class="fa-solid fa-eye" [routerLink]="['/account-info',element.customerId]"
+                        (click)="getAccountId(element)"></i>
+                </td>
+            </ng-container>
+
+            <div class="table-content">
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </div>
+
+        </table>
+    </div>
+
+
+    <mat-menu #menu='matMenu' class="mat-menu">
+        <form #filters="ngForm" (ngSubmit)="onFormSubmit(filters)" class="form">
+            <div class="form-group" (click)="$event.stopPropagation()">
+                <label>Operator</label>
+                <select class="custom-select" ngModel name="operator" #operator="ngModel">
+                    <option *ngFor="let option of filterOperators">{{option}}</option>
+                </select>
+            </div>
+            <div class="form-group" (click)="$event.stopPropagation()">
+                <label>Value</label>
+                <input type="search" class="form-control" ngModel name="value" #value="ngModel">
+            </div>
+            <div class="buttons">
+                <button mat-raised-button class="apply" type="submit">Apply Filter</button>
+                <button mat-raised-button class="clear" type="reset" (click)="clearform()">Clear Filter</button>
+            </div>
+        </form>
+    </mat-menu>
+
+    <div class="paginator">
+        <mat-paginator [length]="100" [pageSize]="20" [pageSizeOptions]="pageSizeValues" (page)="pageChange($event)">
+        </mat-paginator>
+    </div>
+</div>
+
+<div class="loader" *ngIf="load">
+    <mat-spinner></mat-spinner>
+</div>

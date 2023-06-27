@@ -1,0 +1,74 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+  integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+  crossorigin="anonymous" referrerpolicy="no-referrer" />
+<div class="loader" *ngIf="loader">
+  <mat-spinner class="mat-spinner"></mat-spinner>
+</div>
+<div *ngIf="!loader">
+  <div class="Main-Container" *ngIf="isAccountSelected">
+    <div class=company-info>
+      <span id="arrow" routerLink="/companies-list"><i class="fa-solid fa-arrow-left-long"></i></span>
+      <div class="customerName">
+        <h2>{{selectedAccountName}}</h2>
+      </div>
+      <div class="lastUpdate">
+        <p id="last-update" *ngIf="displayNoDataSection">Last Updated:</p>
+        <p id="date" *ngIf="displayNoDataSection">{{updatedDate | date:"medium"}}</p>
+      </div>
+    </div>
+    <p id="Customer-info">Manage Account Org Hierarchy <a routerLink="edit-hierarchy">( <i class="fa-solid fa-pen"></i>
+        Edit)</a></p>
+    <div class="sub-Container">
+      <div class="legend-Red"></div>
+      <p class="para">Not Engaged</p>
+      <div class="legend-Yellow"></div>
+      <p class="para">Partially Engaged</p>
+      <div class="legend-Green"></div>
+      <p class="para">Actively Engaged</p>
+    </div>
+  </div>
+  <div [style.display]="!displayNoDataSection? 'block':'none'">
+    <p id="noData">{{noDataMessage}}</p>
+    <a routerLink="edit-hierarchy" *ngIf="isAccountSelected"><button mat-raised-button class="addperson"> Add a
+        Person</button></a>
+  </div>
+  <div *ngFor="let employee of employeeDetails">
+    <div class="hierarchy" *ngIf="displayNoDataSection">
+      <angular-org-chart [nodeTemplate]="nodeTemplate" [data]="employee" #exampleChart="orgChart"
+        style="background-color:rgb(250, 250, 250);">
+
+      </angular-org-chart>
+
+
+      <ng-template #nodeTemplate let-node class="cnt">
+
+        <div class="Card-Container">
+          <div class="avtar" (mouseenter)="openOnHover(node,$event)">
+            <img [src]="node.gender=='Male'? 'assets/images/MaleUser-image.png' : 'assets/images/FemaleUser-image.png' "
+              alt="" id="userimage">
+          </div>
+          <div class='status' [ngClass]="{'ContainerRed': node.engagementLevelId===1,
+                                            'ContainerYellow': node.engagementLevelId===2,
+                                            'ContainerGreen' : node.engagementLevelId===3}">
+          </div>
+          <div class="info-box">
+            <p id="name" (mouseenter)="openOnHover(node,$event)">{{node.name | titlecase}}</p>
+            <p id="designation">{{node.designation}}</p>
+            <p id="kdm">{{node.influencerOrKdm_Name}}</p>
+            <div class='icons'>
+              <a href="{{node.linkedInUrl}}" target="_blank">
+                <div class='icon social in'><i class="fa-brands fa-linkedin-in"></i></div>
+              </a>
+              <div class="eye"><i class='fa fa-eye' (click)="OpenViewPopup(node)"></i></div>
+              <div class="edit"><i class="fa-solid fa-pen" id="edit" (click)="editPopup(node)"></i></div>
+            </div>
+          </div>
+        </div>
+      </ng-template>
+    </div>
+  </div>
+
+  <div>
+    <ng-container #popupHost></ng-container>
+  </div>
+</div>

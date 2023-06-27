@@ -1,0 +1,202 @@
+/* You can add global styles to this file, and also import other style files */
+
+// @include mat-core();
+// $theming-material-components-primary: mat-palette($mat-light-blue, 900);
+// $theming-material-components-accent: mat-palette($mat-gray, 900);
+// $theming-material-components-warn: mat-palette($mat-red);
+// $theming-material-components-theme: mat-light-theme( $theming-material-components-primary, $theming-material-components-accent, $theming-material-components-warn);
+// @include angular-material-theme($theming-material-components-theme);
+
+@import '~@angular/material/theming';
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import "./variables.scss";
+
+@font-face {
+  font-family: "Open Sans";
+  src: url("assets/fonts/Open_Sans/OpenSans-Regular.ttf") format("truetype");
+  font-weight: $font-normal;
+}
+@font-face {
+  font-family: "Open Sans";
+  src: url("assets/fonts/Open_Sans/OpenSans-SemiBold.ttf") format("truetype");
+  font-weight: $font-semi-bold;
+}
+@font-face {
+  font-family: "Open Sans";
+  src: url("assets/fonts/Open_Sans/OpenSans-Bold.ttf") format("truetype");
+  font-weight: $font-bold;
+}
+@font-face {
+  font-family: "Open Sans";
+  src: url("assets/fonts/Open_Sans/OpenSans-Light.ttf") format("truetype");
+  font-weight: $font-light;
+}
+
+// Define a custom typography config that overrides the font-family as well as the
+// `headlines` and `body-1` levels.
+$custom-typography: mat-typography-config(
+  $font-family: "Open Sans",
+  $headline: mat-typography-level(24px, 32px, 600),
+  $body-1: mat-typography-level(16px, 24px, 500)
+);
+
+// Override typography CSS classes (e.g., mat-h1, mat-display-1, mat-typography, etc.).
+@include mat-base-typography($custom-typography);
+
+// Override typography for a specific Angular Material components.
+@include mat-checkbox-typography($custom-typography);
+
+// Override typography for all Angular Material, including mat-base-typography and all components.
+@include angular-material-typography($custom-typography);
+
+// Override the typography in the core CSS.
+@include mat-core($custom-typography);
+
+body {
+    margin: 0;
+}
+
+html,
+body {
+    font-family: $font-family !important;
+}
+
+* {
+    outline: none !important;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+.main-content {
+    padding: 10px;
+    @media(min-width: 768px){
+        // padding: 24px;
+    }
+    @media(min-width: 1200px){
+        // padding: 30px;
+    }
+}
+
+.page-title {
+    margin-bottom: 20px !important;
+}
+
+.primary-heading h3{
+  line-height: 1;
+  border-right: 3px solid #123F69;
+  margin-bottom: 0px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600 !important;
+}
+
+.primary-heading {
+  color: $primary-text-color;
+}
+
+// .primary-heading .mat-icon {
+//   color: $primary-text-color;
+// }
+
+.must-have {
+  color: $must-have-priority-color;
+}
+
+.could-have {
+  color:  $could-have-priority-color;
+}
+
+.overlay-prerequisite-name {
+  color: #0C6DFF;
+  text-decoration: underline;
+}
+
+.vertical-divider-line
+{
+    height: 17px;
+    border-right: 3px solid $primary-text-color !important;
+    top: 5px;
+    position: relative;
+}
+
+.mat-button {
+  border: 1px round($number: 0);
+}
+
+.mat-typography .page-title{
+  font-size: 20px;
+  @media(min-width: 768px){
+    font-size: 22px;
+  }
+  @media(min-width: 1200px){
+    font-size: 24px;
+  }
+}
+
+
+// Origanization styles
+.ngx-org-head{
+  background: #F2F9FF;
+  color : #757575;
+  border-radius: 5px;
+  border: 2px solid #123F69;
+}
+
+.ngx-org-team{
+  background: #FFFFFF;
+  border-color: #FFFFFF;
+  border-radius: 5px;
+  // width: 250px;
+}
+
+.ngx-org-ConnectorBorder{
+  border: 2px solid #123F69
+}
+
+.mat-card-content{
+  font-size: 12px;
+}
+
+.mat-card-title{
+  font-size: 16px;
+  font-weight: 600;
+  color: #222222; 
+}
+
+.mat-list-text{
+  font-size: 16px;
+  color:  #80818B;
+}
+
+.mat-list-text:hover{
+  font-size: 16px;
+  color: #0070CD !important;
+}
+
+
+input, select{
+  font-size: 12px;
+  color: #2F2E41;
+  font-weight: 600;
+  line-height: 24px;
+}
+
+mat-radio-button:checked{
+  color: blue !important;
+}
+
+.no-padding-dialog .mat-dialog-container{
+  padding: 0;
+}
+
+.loader{
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+

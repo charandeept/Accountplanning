@@ -1,0 +1,63 @@
+<div class="body">
+  <div class='create-metric'>
+    <div id='top'>
+      <section>
+        <h2>{{data.cardType}} Metric</h2>
+        <p class="opacity">Manage your Metric Information</p>
+      </section>
+      <section class="closebar">
+        <button mat-icon-button class="close-button" mat-dialog-close="true">
+          <mat-icon class="close-icon">close</mat-icon>
+        </button>
+      </section>
+    </div>
+    <form class="form" [formGroup]="cardForm">
+      <div>
+        <div class="Metrics">
+          <label class="metrics">Metrics</label>
+          <select formControlName="MetricsID" class="form-control" class="metric-option" #listValue>
+            <option value="" [disabled]="true">Select</option>
+            <option *ngFor="let metric of metricName" [value]="metric">{{metric}}</option>
+          </select>
+          <p *ngIf="this.cardForm.get('MetricsID')?.touched&& this.cardForm.get('MetricsID')?.hasError('required')"
+            class="errorMessage"><sup>*</sup> Metrics is required</p>
+        </div>
+        <div class="Operator">
+          <label for="Operator" class="operator">Operator </label>
+          <span class="operator-option">
+            <div *ngIf= listValue.value>
+              <div *ngFor="let operator of operatorValues[listValue.value]" class="labels">
+                <input type="radio" name="OperatorID" [value]="operator"
+                  formControlName="OperatorID"><label>{{operator}}</label>
+              </div>
+            </div>
+            <div *ngIf= !listValue.value>
+            <div *ngFor="let operator of operatorSelect" class="labels">
+              <input type="radio" name="OperatorID" [value]="operator"
+                formControlName="OperatorID"><label>{{operator}}</label>
+            </div>
+            </div>
+            <p *ngIf="this.cardForm.get('OperatorID')?.touched&& this.cardForm.get('OperatorID')?.hasError('required')"
+              class="operatorErrorMessage"> <sup>*</sup>Operator is required</p>
+          </span>
+        </div>
+        <div class="Values">
+          <label for="values" class="values">Value </label>
+          <select formControlName="Value" class="value-option">
+            <option value="" [disabled]="true">Set a value</option>
+            <option class="options" *ngFor="let value of metricValues[listValue.value]" [value]="value">{{value}}
+            </option>
+          </select>
+          <p *ngIf="this.cardForm.get('Value')?.touched&& this.cardForm.get('Value')?.hasError('required')"
+            class="errorMessage"><sup>*</sup> Value is required</p>
+        </div>
+      </div>
+
+      <div mat-dialog-actions class="buttons">
+        <button mat-button (click)="onNoClick()" class="cancel">Cancel</button>
+        <button mat-raised-button cdkFocusInitial type="submit" class="create"
+          (click)="actionFunction()">{{data.actionButtonText}}</button>
+      </div>
+    </form>
+  </div>
+</div>
