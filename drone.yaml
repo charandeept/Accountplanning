@@ -9,4 +9,4 @@ steps:
       - echo "Hai"
 trigger:
   branch:
-  - master
+  - main
