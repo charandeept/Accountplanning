@@ -7,3 +7,6 @@ steps:
     image: alpine
     commands:
       - echo "Hai"
+trigger:
+  branch:
+  - master
