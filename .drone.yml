@@ -1,0 +1,9 @@
+kind: pipeline
+type: docker
+name: echo-hai
+
+steps:
+  - name: echo-hai
+    image: alpine
+    commands:
+      - echo "Hai"
